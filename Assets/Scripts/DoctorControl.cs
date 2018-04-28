@@ -23,6 +23,8 @@ public class DoctorControl : MonoBehaviour
 
     public Animator doorAnimator;
 
+    public InfoArrow infoArrow;
+
     private bool firstSpawned = false;
 
     private void Awake()
@@ -49,6 +51,14 @@ public class DoctorControl : MonoBehaviour
     {
         GameObject go = Instantiate(doctorPrefab, doctorContainer);
         go.transform.localPosition = SPAWNING_POS;
+
+        if (!firstSpawned)
+        {
+            infoArrow.transform.localPosition = new Vector3(4, 4, 5);
+            infoArrow.Target = go.transform;
+            infoArrow.Enable(true);
+        }
+        
 
         Doctor d = go.GetComponent<Doctor>();
         d.SetMovingSpeed(firstSpawned ? DEFAULT_RUN_SPEED : DEFAULT_WALK_SPEED);

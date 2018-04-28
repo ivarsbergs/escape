@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sacristan.Utils;
 
-public class PentagramRaycaster : MonoBehaviour
+public class PentagramRaycaster : Singleton<PentagramRaycaster>
 {
     public delegate void EventHandler();
     public event EventHandler OnPentagramDrawn;
