@@ -1,4 +1,4 @@
-﻿//#define DEBUG_INFO_ARROW
+﻿#define DEBUG_INFO_ARROW
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
