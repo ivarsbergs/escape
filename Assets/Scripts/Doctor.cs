@@ -58,19 +58,11 @@ public class Doctor : MonoBehaviour
 
     public void RipOffRand()
     {
+        CancelInvoke("CallPlayerStabbed");
         StopMovingForward();
-
         animator.Play("Dead");
 
-
-        //var meshRenerers = GetComponentsInChildren<SkinnedMeshRenderer>();
-        //foreach (SkinnedMeshRenderer mr in meshRenerers)
-        //{
-        //    Debug.Log("Set alpha");
-        //    var mrAlpha = mr.material.color;
-        //    mrAlpha.a = 0;
-        //    mr.material.color = new Color(mr.material.color.r, mr.material.color.g, mr.material.color.b, 0);
-        //}
+        DoctorControl.Instance.SpawnDoctor();
     }
 
     public void StopMovingForward()
@@ -97,6 +89,7 @@ public class Doctor : MonoBehaviour
         if (_pointCounter >= POINTS_UNTIL_END)
         {
             animator.SetBool("PlayerReached", true);
+            Invoke("CallPlayerStabbed", 1f);
         }
     }
 
@@ -104,5 +97,10 @@ public class Doctor : MonoBehaviour
     {
         DoctorControl.Instance.doorAnimator.Play("OpenDoor");
         SoundsControl.Instance.PlaySound(SoundsControl.Sounds.DOOR);
+    }
+
+    public void CallPlayerStabbed()
+    {
+        Debug.Log("STAB!");
     }
 }

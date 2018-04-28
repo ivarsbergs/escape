@@ -42,8 +42,7 @@ public class DoctorControl : MonoBehaviour
 
     void StartSpawningDoctors()
     {
-        SpawnDoctor();
-        InvokeRepeating("SpawnDoctor", 10f, 6f);
+        Invoke("SpawnDoctor", 2f);
     }
 
     public void SpawnDoctor()

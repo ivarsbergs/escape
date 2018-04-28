@@ -14,7 +14,7 @@ public class EndLevelControl : MonoBehaviour {
         }
     }
 
-    public Light spotlight;
+    public List<Light> lights;
     public GameObject unicornDoor;
 
     private bool _doorOpened = false;
@@ -43,8 +43,11 @@ public class EndLevelControl : MonoBehaviour {
         if (_doorOpened)
         {
             Debug.Log(_lerpTime);
-            spotlight.intensity = Mathf.Lerp(0, 15, _lerpTime);
-            _lerpTime += Time.deltaTime / 2;
+            foreach (Light l in lights)
+            {
+                l.intensity = Mathf.Lerp(0, 20, _lerpTime);
+            }
+            _lerpTime += Time.deltaTime / 30;
         }
     }
 }
