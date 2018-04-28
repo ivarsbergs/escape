@@ -15,8 +15,6 @@ public class Doctor : MonoBehaviour {
     public Animator animator;
     private int _pointCounter;
 
-    public Animator tmpDoorAnimator;
-
     public BGCcCursor pathCursor;
     public BGCurve pathCurve;
     public BGCcCursorChangeLinear patchCursorChangeLinear;
@@ -50,9 +48,10 @@ public class Doctor : MonoBehaviour {
         //}
     }
 
-    public void ChangeMovingSpeed(float speed)
+    public void SetMovingSpeed(float speed)
     {
         patchCursorChangeLinear.Speed = speed;
+        animator.SetFloat("Speed", speed);
     }
 
     public void RipOffRand()
@@ -90,12 +89,17 @@ public class Doctor : MonoBehaviour {
         if (_pointCounter == POINTS_UNTIL_DOOR_OPEN)
         {
             Debug.Log("Open door");
-            tmpDoorAnimator.Play("OpenDoor");
+            Invoke("CallOpenDoor", 2.6f - patchCursorChangeLinear.Speed);
         }
 
         if (_pointCounter >= POINTS_UNTIL_END)
         {
             animator.SetBool("PlayerReached", true);
         }
+    }
+
+    public void CallOpenDoor()
+    {
+        DoctorControl.Instance.doorAnimator.Play("OpenDoor");
     }
 }
