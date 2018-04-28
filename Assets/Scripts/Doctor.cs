@@ -4,7 +4,8 @@ using UnityEngine;
 using BansheeGz.BGSpline.Components;
 using BansheeGz.BGSpline.Curve;
 
-public class Doctor : MonoBehaviour {
+public class Doctor : MonoBehaviour
+{
 
     public const int POINTS_UNTIL_END = 4;
     public const int POINTS_UNTIL_DOOR_OPEN = 1;
@@ -22,14 +23,15 @@ public class Doctor : MonoBehaviour {
     private bool _startedStabbing = false;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         //test = GetComponent<BGCcCursor>();
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update()
     {
-		if (!_startedStabbing && Vector3.Distance(doctorObj.transform.position, pathCurve[POINTS_UNTIL_END].PositionWorld) < STABBING_DISTANCE)
+        if (!_startedStabbing && Vector3.Distance(doctorObj.transform.position, pathCurve[POINTS_UNTIL_END].PositionWorld) < STABBING_DISTANCE)
         {
             _startedStabbing = true;
             StopMovingForward();
