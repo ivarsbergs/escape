@@ -13,7 +13,7 @@ public class Doctor : MonoBehaviour
 
     public GameObject doctorObj;
 
-    public Animator animator;
+    public List<Animator> animators;
     private int _pointCounter;
 
     public BGCcCursor pathCursor;
@@ -35,7 +35,9 @@ public class Doctor : MonoBehaviour
         {
             _startedStabbing = true;
             StopMovingForward();
-            animator.SetBool("PlayerReached", true);
+
+            foreach (Animator animator in animators)
+                animator.SetBool("PlayerReached", true);
         }
 
         pathCurve[POINTS_UNTIL_END].PositionWorld = Camera.main.transform.position;
@@ -53,14 +55,16 @@ public class Doctor : MonoBehaviour
     public void SetMovingSpeed(float speed)
     {
         patchCursorChangeLinear.Speed = speed;
-        animator.SetFloat("Speed", speed);
+        foreach (Animator animator in animators)
+            animator.SetFloat("Speed", speed);
     }
 
     public void RipOffRand()
     {
         CancelInvoke("CallPlayerStabbed");
         StopMovingForward();
-        animator.Play("Dead");
+        foreach (Animator animator in animators)
+            animator.Play("Dead");
 
         DoctorControl.Instance.SpawnDoctor();
     }
@@ -88,7 +92,8 @@ public class Doctor : MonoBehaviour
 
         if (_pointCounter >= POINTS_UNTIL_END)
         {
-            animator.SetBool("PlayerReached", true);
+            foreach (Animator animator in animators)
+                animator.SetBool("PlayerReached", true);
             Invoke("CallPlayerStabbed", 1f);
         }
     }
