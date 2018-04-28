@@ -7,6 +7,7 @@ public class ControllerBehaviour : MonoBehaviour
 {
     public Material DefaultMaterial;
     public Material ActiveMaterial;
+    public Material TestingMaterial;
     public GameObject Cursor;
 
     public FixedJoint grabJoint;
@@ -39,19 +40,20 @@ public class ControllerBehaviour : MonoBehaviour
             rigidbody.angularVelocity = device.angularVelocity;
             grabJoint.connectedBody = null;
         }
-        if(this.device.GetPress(EVRButtonId.k_EButton_SteamVR_Trigger))
+        /*if(this.device.GetPress(EVRButtonId.k_EButton_SteamVR_Trigger))
         {
             this.cursorRenderer.material = ActiveMaterial;
         } else
         {
             this.cursorRenderer.material = DefaultMaterial;
-        }
+        }*/
     }
 
     void OnTriggerStay(Collider other)
     {
         if (other.tag == "Hand")
         {
+            this.cursorRenderer.material = TestingMaterial;
             if (this.device.GetPressDown(EVRButtonId.k_EButton_SteamVR_Trigger) && grabJoint.connectedBody == null)
             {
                 Debug.Log("3");
