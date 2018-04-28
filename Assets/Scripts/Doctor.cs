@@ -101,5 +101,6 @@ public class Doctor : MonoBehaviour {
     public void CallOpenDoor()
     {
         DoctorControl.Instance.doorAnimator.Play("OpenDoor");
+        SoundsControl.Instance.PlaySound(SoundsControl.Sounds.DOOR);
     }
 }

@@ -24,7 +24,7 @@ public class SoundsControl : MonoBehaviour {
         UNICORN
     }
 
-    public List<AudioClip> soundClips;
+    public AudioSource doorSource;
 
     private void Awake()
     {
@@ -43,6 +43,11 @@ public class SoundsControl : MonoBehaviour {
 
     public void PlaySound(Sounds soundSelected)
     {
-        
+        switch (soundSelected)
+        {
+            case Sounds.DOOR:
+                doorSource.Play();
+                break;
+        }
     }
 }
