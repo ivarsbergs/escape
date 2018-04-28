@@ -54,7 +54,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleLauncher: {fileID: 198310859273395216}
-  splatterParticles: {fileID: 0}
   particleColorGradient:
     serializedVersion: 2
     key0: {r: 0.32941177, g: 0, b: 0, a: 1}
@@ -84,8 +83,8 @@ MonoBehaviour:
     m_Mode: 1
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
-  splatDecalPool: {fileID: 0}
-  frameRate: 1
+  framesInterval: 1
+  intensity: 4
 --- !u!198 &198310859273395216
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -298,7 +297,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 0.25
       minScalar: 1
       maxCurve:
         serializedVersion: 2
