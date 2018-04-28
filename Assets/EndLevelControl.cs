@@ -16,6 +16,7 @@ public class EndLevelControl : MonoBehaviour {
 
     public List<Light> lights;
     public GameObject unicornDoor;
+    public Animator unicornAnimator;
 
     private bool _doorOpened = false;
     private float _lerpTime = 0;
@@ -30,6 +31,8 @@ public class EndLevelControl : MonoBehaviour {
         _doorOpened = true;
         //unicornDoor.SetActive(false);
         unicornDoor.GetComponent<Animator>().Play("UnicornDoorAnimation");
+
+        Invoke("StartMovingUnicorn", 1.5f);
     }
 
     // Use this for initialization
@@ -49,5 +52,10 @@ public class EndLevelControl : MonoBehaviour {
             }
             _lerpTime += Time.deltaTime / 30;
         }
+    }
+
+    void StartMovingUnicorn()
+    {
+        unicornAnimator.Play("MoveUnicorn");
     }
 }
