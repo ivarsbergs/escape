@@ -5,7 +5,7 @@ using UnityEngine;
 public class ParticleLauncherBase : MonoBehaviour
 {
     [SerializeField] ParticleSystem particleLauncher;
-    [SerializeField] ParticleSystem splatterParticles;
+    [SerializeField] protected ParticleSystem splatterParticles;
     [SerializeField] Gradient particleColorGradient;
     [SerializeField] ParticleDecalPool splatDecalPool;
 
