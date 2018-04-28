@@ -21,6 +21,7 @@ public class EndLevelControl : MonoBehaviour {
 
     public CanvasGroup fadeToWhite;
 
+    public bool gameEnded = false;
     private bool _doorOpened = false;
     private bool _unicornArrived = false;
     private float _lerpLightingTime = 0;
@@ -34,6 +35,7 @@ public class EndLevelControl : MonoBehaviour {
     public void StartOpeningUnicornDoor()
     {
         _doorOpened = true;
+        gameEnded = true;
         //unicornDoor.SetActive(false);
         unicornDoor.GetComponent<Animator>().Play("UnicornDoorAnimation");
 
