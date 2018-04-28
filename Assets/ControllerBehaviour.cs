@@ -82,6 +82,7 @@ public class ControllerBehaviour : MonoBehaviour
         {
             GameObject hand = Instantiate(HandPrefab);
             hand.transform.parent = this.HandParent.transform;
+            this.liveHand = null;
         }
     }
 }
