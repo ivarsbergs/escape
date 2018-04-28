@@ -36,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1714783842029998}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -56,8 +56,8 @@ MonoBehaviour:
   particleLauncher: {fileID: 198451533055051196}
   particleColorGradient:
     serializedVersion: 2
-    key0: {r: 1, g: 0, b: 0.43529412, a: 1}
-    key1: {r: 0, g: 0.47058824, b: 0.003921569, a: 1}
+    key0: {r: 0.32941177, g: 0, b: 0, a: 1}
+    key1: {r: 0.32941177, g: 0, b: 0, a: 1}
     key2: {r: 0, g: 0.2509804, b: 0.39607844, a: 0}
     key3: {r: 0.11764706, g: 0, b: 1, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -65,7 +65,7 @@ MonoBehaviour:
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 14312
+    ctime1: 65535
     ctime2: 42183
     ctime3: 65535
     ctime4: 0
@@ -81,7 +81,7 @@ MonoBehaviour:
     atime6: 0
     atime7: 0
     m_Mode: 0
-    m_NumColorKeys: 4
+    m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   dropletDecalPool: {fileID: 0}
 --- !u!198 &198451533055051196
@@ -144,7 +144,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 155476601
+  randomSeed: -1847125351
   InitialModule:
     serializedVersion: 3
     enabled: 1
