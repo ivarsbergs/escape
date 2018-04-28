@@ -9,8 +9,10 @@ public class ControllerBehaviour : MonoBehaviour
     public Material ActiveMaterial;
     public Material TestingMaterial;
     public GameObject Cursor;
-
+    public GameObject HandPrefab;
+    public GameObject HandParent;
     public FixedJoint grabJoint;
+    private GameObject liveHand;
     private Renderer cursorRenderer;
     protected SteamVR_TrackedObject trackedObj;
     public SteamVR_Controller.Device device
@@ -59,9 +61,27 @@ public class ControllerBehaviour : MonoBehaviour
                 Debug.Log("3");
                 grabJoint.connectedBody = other.GetComponent<Rigidbody>();
             }
-        } else
+        }
+        else
         {
             this.cursorRenderer.material = DefaultMaterial;
+        }
+        if (other.tag == "LiveHand")
+        {
+            this.cursorRenderer.material = ActiveMaterial;
+            if (this.device.GetPressDown(EVRButtonId.k_EButton_SteamVR_Trigger) && grabJoint.connectedBody == null)
+            {
+                grabJoint.connectedBody = other.GetComponent<Rigidbody>();
+            }
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject == this.liveHand)
+        {
+            GameObject hand = Instantiate(HandPrefab);
+            hand.transform.parent = this.HandParent.transform;
         }
     }
 }
