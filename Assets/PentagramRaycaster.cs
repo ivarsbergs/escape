@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PentagramRaycaster : MonoBehaviour
 {
+    public delegate void EventHandler();
+    public event EventHandler OnPentagramDrawn;
+
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private float distance = 5f;
 
@@ -11,16 +14,23 @@ public class PentagramRaycaster : MonoBehaviour
 
     Camera _camera;
 
+    private bool pentagramDrawn = false;
+
     private void Start()
     {
         _camera = GetComponent<Camera>();
-        uncheckedPentagrammonPoints = new List<PentagrammonPoint>(GetComponentsInChildren<PentagrammonPoint>());
+
+        uncheckedPentagrammonPoints = new List<PentagrammonPoint>(FindObjectsOfType<PentagrammonPoint>());
+        StartCoroutine(RaycastPentagrammonPointRoutine());
     }
 
-    private void Update()
+    private IEnumerator RaycastPentagrammonPointRoutine()
     {
-        //if (Input.GetKey(KeyCode.F)) RaycastPentagrammonPoint();
-        RaycastPentagrammonPoint();
+        while (!pentagramDrawn)
+        {
+            RaycastPentagrammonPoint();
+            yield return null;
+        }
     }
 
     private void RaycastPentagrammonPoint()
@@ -33,7 +43,21 @@ public class PentagramRaycaster : MonoBehaviour
         //    direction = dir
         //};
 
-        Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+        Ray ray;
+
+        if (_camera == null)
+        {
+            ray = new Ray
+            {
+                origin = transform.position,
+                direction = transform.forward
+            };
+        }
+        else
+        {
+             ray = _camera.ScreenPointToRay(Input.mousePosition);
+        }
+
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, distance, layerMask))
@@ -51,7 +75,8 @@ public class PentagramRaycaster : MonoBehaviour
 
         if(uncheckedPentagrammonPoints.Count == 0)
         {
-            Debug.Log("Done!!!");
+            pentagramDrawn = true;
+            if (OnPentagramDrawn != null) OnPentagramDrawn.Invoke();
         }
     }
 
