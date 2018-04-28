@@ -5,7 +5,13 @@ using Valve.VR;
 
 public class ControllerBehaviour : MonoBehaviour
 {
-    public CharacterJoint grabJoint;
+    public Material DefaultMaterial;
+    public Material ActiveMaterial;
+    public Material TestingMaterial;
+    public GameObject Cursor;
+
+    public FixedJoint grabJoint;
+    private Renderer cursorRenderer;
     protected SteamVR_TrackedObject trackedObj;
     public SteamVR_Controller.Device device
     {
@@ -18,6 +24,8 @@ public class ControllerBehaviour : MonoBehaviour
     void Awake()
     {
         trackedObj = GetComponent<SteamVR_TrackedObject>();
+        this.cursorRenderer = Cursor.GetComponent<Renderer>();
+        this.grabJoint.connectedBody = null;
     }
     void Start()
     {
@@ -25,13 +33,32 @@ public class ControllerBehaviour : MonoBehaviour
 
     void Update()
     {
+        if (grabJoint.connectedBody != null && !this.device.GetPress(EVRButtonId.k_EButton_SteamVR_Trigger))
+        {
+            Rigidbody rigidbody = grabJoint.connectedBody;
+            rigidbody.velocity = device.velocity;
+            rigidbody.angularVelocity = device.angularVelocity;
+            grabJoint.connectedBody = null;
+        }
+        /*if(this.device.GetPress(EVRButtonId.k_EButton_SteamVR_Trigger))
+        {
+            this.cursorRenderer.material = ActiveMaterial;
+        } else
+        {
+            this.cursorRenderer.material = DefaultMaterial;
+        }*/
     }
 
     void OnTriggerStay(Collider other)
     {
-        if (this.device.GetPressDown(EVRButtonId.k_EButton_SteamVR_Trigger))
+        if (other.tag == "Hand")
         {
-            grabJoint.connectedBody = other.GetComponent<Rigidbody>();
+            this.cursorRenderer.material = TestingMaterial;
+            if (this.device.GetPressDown(EVRButtonId.k_EButton_SteamVR_Trigger) && grabJoint.connectedBody == null)
+            {
+                Debug.Log("3");
+                grabJoint.connectedBody = other.GetComponent<Rigidbody>();
+            }
         }
     }
 }
