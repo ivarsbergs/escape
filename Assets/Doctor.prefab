@@ -170,6 +170,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4219363139613020}
   - component: {fileID: 95520475208160004}
+  - component: {fileID: 136799664776343794}
   m_Layer: 0
   m_Name: DoctorObject
   m_TagString: Untagged
@@ -1253,8 +1254,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1765884343150268}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.32, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.697152, y: 2.8283837, z: 1.9319572}
   m_LocalScale: {x: 1, y: 3, z: 1}
   m_Children:
   - {fileID: 4219363139613020}
@@ -1308,8 +1309,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1188901906656042}
-  m_LocalRotation: {x: -0, y: -0.6909908, z: -0, w: 0.72286355}
-  m_LocalPosition: {x: 15.316564, y: 0, z: 0.961949}
+  m_LocalRotation: {x: -0, y: -0.72235346, z: -0, w: 0.691524}
+  m_LocalPosition: {x: 15.250259, y: 0, z: 1.2218599}
   m_LocalScale: {x: 1, y: 0.33333334, z: 1}
   m_Children:
   - {fileID: 4863672135428812}
@@ -2314,23 +2315,23 @@ MonoBehaviour:
   closed: 0
   points:
   - controlType: 0
-    positionLocal: {x: 15.316564, y: 0, z: 0.961949}
+    positionLocal: {x: 15.25026, y: 0, z: 1.2218599}
     controlFirstLocal: {x: 1, y: 0, z: 0}
     controlSecondLocal: {x: -1, y: 0, z: -0}
     pointTransform: {fileID: 0}
     curve: {fileID: 114866605650260994}
     fieldsValues: []
   - controlType: 0
-    positionLocal: {x: 9.732249, y: 0, z: 1.2138526}
+    positionLocal: {x: 9.967461, y: 0, z: 0.9913682}
     controlFirstLocal: {x: 0.3186688, y: 0, z: -0.018549185}
     controlSecondLocal: {x: -0.3186688, y: 0, z: 0.018549185}
     pointTransform: {fileID: 0}
     curve: {fileID: 114866605650260994}
     fieldsValues: []
   - controlType: 1
-    positionLocal: {x: 8.187813, y: 0, z: 1.525457}
-    controlFirstLocal: {x: 0.7317066, y: 0, z: -0.23112464}
-    controlSecondLocal: {x: -0.7317066, y: -0, z: 0.23112464}
+    positionLocal: {x: 7.8865347, y: 0, z: 1.6556536}
+    controlFirstLocal: {x: 0.7317071, y: 0, z: -0.31383616}
+    controlSecondLocal: {x: -0.7317071, y: -0, z: 0.31383616}
     pointTransform: {fileID: 0}
     curve: {fileID: 114866605650260994}
     fieldsValues: []
@@ -2362,6 +2363,19 @@ MonoBehaviour:
   eventMode: 0
   pointsMode: 0
   forceChangedEventMode: 2
+--- !u!136 &136799664776343794
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1188901906656042}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.35
+  m_Height: 1.9
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.78, z: 0}
 --- !u!137 &137168417942552986
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
