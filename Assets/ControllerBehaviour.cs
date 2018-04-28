@@ -59,6 +59,9 @@ public class ControllerBehaviour : MonoBehaviour
                 Debug.Log("3");
                 grabJoint.connectedBody = other.GetComponent<Rigidbody>();
             }
+        } else
+        {
+            this.cursorRenderer.material = DefaultMaterial;
         }
     }
 }
