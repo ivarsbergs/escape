@@ -25,13 +25,23 @@ public class ControllerBehaviour : MonoBehaviour
 
     void Update()
     {
+        if (grabJoint.connectedBody != null && !this.device.GetPressDown(EVRButtonId.k_EButton_SteamVR_Trigger))
+        {
+            Rigidbody rigidbody = grabJoint.connectedBody;
+            rigidbody.velocity = device.velocity;
+            rigidbody.angularVelocity = device.angularVelocity;
+            grabJoint.connectedBody = null;
+        }
     }
 
     void OnTriggerStay(Collider other)
     {
-        if (this.device.GetPressDown(EVRButtonId.k_EButton_SteamVR_Trigger))
+        if (other.tag == "Hand")
         {
-            grabJoint.connectedBody = other.GetComponent<Rigidbody>();
+            if (this.device.GetPressDown(EVRButtonId.k_EButton_SteamVR_Trigger) && grabJoint.connectedBody == null)
+            {
+                grabJoint.connectedBody = other.GetComponent<Rigidbody>();
+            }
         }
     }
 }
