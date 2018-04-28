@@ -684,6 +684,26 @@ Prefab:
       propertyPath: maxDecals
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 114978676064987830, guid: 9ac54709c78829e4e8a1e567d7275b71,
+        type: 2}
+      propertyPath: decalSizeMin
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 114978676064987830, guid: 9ac54709c78829e4e8a1e567d7275b71,
+        type: 2}
+      propertyPath: decalSizeMax
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114434799969466796, guid: 9ac54709c78829e4e8a1e567d7275b71,
+        type: 2}
+      propertyPath: decalSizeMax
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198720548585056146, guid: 9ac54709c78829e4e8a1e567d7275b71,
+        type: 2}
+      propertyPath: SizeModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ac54709c78829e4e8a1e567d7275b71, type: 2}
   m_IsPrefabParent: 0
@@ -2456,7 +2476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f7f286e75bbd9248815414463a92dc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spotlight: {fileID: 957873083}
+  lights: []
   unicornDoor: {fileID: 38337286}
 --- !u!1 &1576533498
 GameObject:
@@ -4325,6 +4345,11 @@ Prefab:
     - target: {fileID: 4943927447106390, guid: e583e412ffb585641b4f42293a558128, type: 2}
       propertyPath: m_RootOrder
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114801880425181404, guid: e583e412ffb585641b4f42293a558128,
+        type: 2}
+      propertyPath: spawnParticleSize
+      value: 0.15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e583e412ffb585641b4f42293a558128, type: 2}
