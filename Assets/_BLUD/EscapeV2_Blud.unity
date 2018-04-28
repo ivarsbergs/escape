@@ -853,46 +853,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 198720548585056146, guid: 9ac54709c78829e4e8a1e567d7275b71,
-        type: 2}
-      propertyPath: CollisionModule.collidesWith.m_Bits
-      value: 256
-      objectReference: {fileID: 0}
-    - target: {fileID: 198720548585056146, guid: 9ac54709c78829e4e8a1e567d7275b71,
-        type: 2}
-      propertyPath: randomSeed
-      value: -1546440344
-      objectReference: {fileID: 0}
-    - target: {fileID: 114978676064987830, guid: 9ac54709c78829e4e8a1e567d7275b71,
-        type: 2}
-      propertyPath: maxDecals
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 114434799969466796, guid: 9ac54709c78829e4e8a1e567d7275b71,
-        type: 2}
-      propertyPath: maxDecals
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 114978676064987830, guid: 9ac54709c78829e4e8a1e567d7275b71,
-        type: 2}
-      propertyPath: decalSizeMin
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 114978676064987830, guid: 9ac54709c78829e4e8a1e567d7275b71,
-        type: 2}
-      propertyPath: decalSizeMax
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 114434799969466796, guid: 9ac54709c78829e4e8a1e567d7275b71,
-        type: 2}
-      propertyPath: decalSizeMax
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198720548585056146, guid: 9ac54709c78829e4e8a1e567d7275b71,
-        type: 2}
-      propertyPath: SizeModule.enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ac54709c78829e4e8a1e567d7275b71, type: 2}
   m_IsPrefabParent: 0
@@ -3216,7 +3176,7 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1402378147}
-  m_LocalRotation: {x: 0.27767932, y: 0.95901513, z: -0.049687255, w: -0.026745912}
+  m_LocalRotation: {x: 0.42606464, y: 0.9029313, z: -0.05329616, w: -0.018538792}
   m_LocalPosition: {x: 8.85, y: 1.111, z: 4.866}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3225,7 +3185,7 @@ Transform:
   - {fileID: 158355856}
   m_Father: {fileID: 0}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 4.6140003, y: -175.46, z: 392.479}
+  m_LocalEulerAnglesHint: {x: 4.6140003, y: -175.46, z: 410.70502}
 --- !u!1 &1414137682
 GameObject:
   m_ObjectHideFlags: 0
@@ -5375,21 +5335,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4173577786580660, guid: 4ae6c1ea33c9f9c4793301920c405abd, type: 2}
       propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198127984197992360, guid: 4ae6c1ea33c9f9c4793301920c405abd,
-        type: 2}
-      propertyPath: randomSeed
-      value: 69988931
-      objectReference: {fileID: 0}
-    - target: {fileID: 198127984197992360, guid: 4ae6c1ea33c9f9c4793301920c405abd,
-        type: 2}
-      propertyPath: VelocityModule.z.scalar
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 198127984197992360, guid: 4ae6c1ea33c9f9c4793301920c405abd,
-        type: 2}
-      propertyPath: VelocityModule.y.scalar
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

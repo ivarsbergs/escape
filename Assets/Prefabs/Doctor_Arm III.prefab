@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 4300622885750164}
   - component: {fileID: 95841089547235030}
   m_Layer: 0
-  m_Name: Doctor_Arm II
+  m_Name: Doctor_Arm III
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

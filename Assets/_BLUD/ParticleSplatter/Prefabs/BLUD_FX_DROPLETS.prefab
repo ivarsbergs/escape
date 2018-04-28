@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e92702387b83815469beba82c996f217, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDecals: 2000
+  maxDecals: 500
   decalSizeMin: 0.05
   decalSizeMax: 0.15
 --- !u!114 &114955275960507356
@@ -214,9 +214,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ecd0eae104eab24a869ca5784023c9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDecals: 5000
-  decalSizeMin: 0.25
-  decalSizeMax: 0.5
+  maxDecals: 500
+  decalSizeMin: 0.05
+  decalSizeMax: 0.25
 --- !u!198 &198153304871664054
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -277,7 +277,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1853144060
+  randomSeed: -527731388
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3638,7 +3638,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1546440344
+  randomSeed: 460828940
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -4208,7 +4208,7 @@ ParticleSystem:
     m_BurstCount: 0
     m_Bursts: []
   SizeModule:
-    enabled: 1
+    enabled: 0
     curve:
       serializedVersion: 2
       minMaxState: 2
@@ -5984,7 +5984,7 @@ ParticleSystem:
     radiusScale: 0.1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 768
+      m_Bits: 256
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 2
@@ -6855,7 +6855,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1652837245
+  randomSeed: 406759085
   InitialModule:
     serializedVersion: 3
     enabled: 1
