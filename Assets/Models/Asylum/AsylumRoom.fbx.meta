@@ -1,0 +1,268 @@
+fileFormatVersion: 2
+guid: 6f2099dbf4966734b9503d81753a3c96
+timeCreated: 1524899237
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Corridor_BorderFloor
+    100004: Corridor_CeilingDividers
+    100006: Corridor_Railing
+    100008: Corridor_WallsFloorCeiling
+    100010: PaddedRoom_Bed
+    100012: PaddedRoom_BorderCeiling
+    100014: PaddedRoom_BorderDoor
+    100016: PaddedRoom_BorderFloor
+    100018: PaddedRoom_BorderWindow
+    100020: PaddedRoom_Door
+    100022: PaddedRoom_Light
+    100024: PaddedRoom_WallsFloorCeiling
+    100026: PaddedRoom_WallsFloorCeiling_Hole
+    400000: //RootNode
+    400002: Corridor_BorderFloor
+    400004: Corridor_CeilingDividers
+    400006: Corridor_Railing
+    400008: Corridor_WallsFloorCeiling
+    400010: PaddedRoom_Bed
+    400012: PaddedRoom_BorderCeiling
+    400014: PaddedRoom_BorderDoor
+    400016: PaddedRoom_BorderFloor
+    400018: PaddedRoom_BorderWindow
+    400020: PaddedRoom_Door
+    400022: PaddedRoom_Light
+    400024: PaddedRoom_WallsFloorCeiling
+    400026: PaddedRoom_WallsFloorCeiling_Hole
+    2100000: PaddedRoom_Walls
+    2100002: PaddedRoom_Bed
+    2100004: PaddedRoom_Light_Diffuse
+    2100006: PaddedRoom_Light_Light
+    2100008: Corridor_Railing
+    2100010: Corridor_BorderFloor
+    2100012: Corridor_CeilingDividers
+    2100014: Corridor_Ceiling
+    2100016: Corridor_Walls
+    2100018: Corridor_Floor
+    2100020: PaddedRoom_Doors_Main
+    2100022: PaddedRoom_Doors_Metal
+    2100024: PaddedRoom_BorderWindow
+    2100026: PaddedRoom_BorderDoor
+    2100028: PaddedRoom_BorderCeiling
+    2100030: PaddedRoom_BorderFloor
+    2100032: PaddedRoom_Ceiling
+    2100034: PaddedRoom_Floor
+    2100036: PaddedRoom_OuterWalls
+    2300000: Corridor_BorderFloor
+    2300002: Corridor_CeilingDividers
+    2300004: Corridor_Railing
+    2300006: Corridor_WallsFloorCeiling
+    2300008: PaddedRoom_Bed
+    2300010: PaddedRoom_BorderCeiling
+    2300012: PaddedRoom_BorderDoor
+    2300014: PaddedRoom_BorderFloor
+    2300016: PaddedRoom_BorderWindow
+    2300018: PaddedRoom_Door
+    2300020: PaddedRoom_Light
+    2300022: PaddedRoom_WallsFloorCeiling
+    2300024: PaddedRoom_WallsFloorCeiling_Hole
+    3300000: Corridor_BorderFloor
+    3300002: Corridor_CeilingDividers
+    3300004: Corridor_Railing
+    3300006: Corridor_WallsFloorCeiling
+    3300008: PaddedRoom_Bed
+    3300010: PaddedRoom_BorderCeiling
+    3300012: PaddedRoom_BorderDoor
+    3300014: PaddedRoom_BorderFloor
+    3300016: PaddedRoom_BorderWindow
+    3300018: PaddedRoom_Door
+    3300020: PaddedRoom_Light
+    3300022: PaddedRoom_WallsFloorCeiling
+    3300024: PaddedRoom_WallsFloorCeiling_Hole
+    4300000: PaddedRoom_WallsFloorCeiling_Hole
+    4300002: PaddedRoom_Bed
+    4300004: PaddedRoom_Light
+    4300006: Corridor_Railing
+    4300008: Corridor_BorderFloor
+    4300010: Corridor_CeilingDividers
+    4300012: Corridor_WallsFloorCeiling
+    4300014: PaddedRoom_Door
+    4300016: PaddedRoom_BorderWindow
+    4300018: PaddedRoom_BorderDoor
+    4300020: PaddedRoom_BorderCeiling
+    4300022: PaddedRoom_BorderFloor
+    4300024: PaddedRoom_WallsFloorCeiling
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Corridor_BorderFloor
+    second: {fileID: 2100000, guid: f2374792d0436d049abb630a2c6b13ad, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Corridor_Ceiling
+    second: {fileID: 2100000, guid: f37a28c2684cbad498fbf20800d1b9f6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Corridor_CeilingDividers
+    second: {fileID: 2100000, guid: 98401ecce7938754cb3b7f8b3ded9bc7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Corridor_Floor
+    second: {fileID: 2100000, guid: 7c71df8cb59dd9346b1eb0788b00f786, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Corridor_Railing
+    second: {fileID: 2100000, guid: cedbe30ece09bc54db3cb9620161b431, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Corridor_Walls
+    second: {fileID: 2100000, guid: 861dd36f13150774596b21531098d758, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PaddedRoom_Bed
+    second: {fileID: 2100000, guid: 04707d57307e1a04db86367345ff7c8b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PaddedRoom_BorderCeiling
+    second: {fileID: 2100000, guid: b04b3a2e1c083d34abb087f9cca2226b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PaddedRoom_BorderDoor
+    second: {fileID: 2100000, guid: e4421b337e59452438f6db4d6fef7ed0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PaddedRoom_BorderFloor
+    second: {fileID: 2100000, guid: 673387d56e1ac0a438950fe0c4841ef2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PaddedRoom_BorderWindow
+    second: {fileID: 2100000, guid: 912643de1dbbd38469b885f1873d7c1f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PaddedRoom_Ceiling
+    second: {fileID: 2100000, guid: 1b764487c07347843b996dd090afe60c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PaddedRoom_Doors_Main
+    second: {fileID: 2100000, guid: 5766d9c2dc62a4e4b8e4de3020338331, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PaddedRoom_Doors_Metal
+    second: {fileID: 2100000, guid: 8ac6ab7803dc3044798c8ce8c7989a4c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PaddedRoom_Floor
+    second: {fileID: 2100000, guid: e626276fef2c8964f89840ef5a07156b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PaddedRoom_Light_Diffuse
+    second: {fileID: 2100000, guid: 32e17debf53f13b48956aa1c7e0e1296, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PaddedRoom_Light_Light
+    second: {fileID: 2100000, guid: a90543c99db9e8f438f2dd054d8c9f56, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PaddedRoom_OuterWalls
+    second: {fileID: 2100000, guid: 7144e2dbc56c7b34a8efd95cf4860e14, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PaddedRoom_Walls
+    second: {fileID: 2100000, guid: fa90224be7532e64fbda1a5b00da0577, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
