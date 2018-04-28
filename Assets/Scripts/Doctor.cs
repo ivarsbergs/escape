@@ -89,7 +89,7 @@ public class Doctor : MonoBehaviour {
         if (_pointCounter == POINTS_UNTIL_DOOR_OPEN)
         {
             Debug.Log("Open door");
-            Invoke("CallOpenDoor", 2.6f - patchCursorChangeLinear.Speed);
+            Invoke("CallOpenDoor", 3.4f - patchCursorChangeLinear.Speed);
         }
 
         if (_pointCounter >= POINTS_UNTIL_END)
