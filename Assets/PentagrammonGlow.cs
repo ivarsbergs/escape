@@ -7,11 +7,24 @@ public class PentagrammonGlow : MonoBehaviour
     [SerializeField] private Color targetColor = Color.red;
     [SerializeField] private float lerpTime = 1f;
 
+    private Renderer _renderer;
+
+    private Color MatColor
+    {
+        get
+        {
+            return _renderer.material.GetColor("_TintColor");
+        }
+        set
+        {
+            _renderer.material.SetColor("_TintColor", value);
+        }
+    }
+
     private IEnumerator Start()
     {
-        Renderer renderer = GetComponent<Renderer>();
-        Color originColor = renderer.material.color;
-
+        _renderer = GetComponent<Renderer>();
+        Color originColor = MatColor;
 
         while (true)
         {
@@ -21,17 +34,22 @@ public class PentagrammonGlow : MonoBehaviour
             while (t <= 1f)
             {
                 t += Time.deltaTime / lerpTime;
-                renderer.material.color = Color.Lerp(originColor, targetColor, t);
+                MatColor = Color.Lerp(originColor, targetColor, t);
                 yield return null;
             }
 
             while (t >= 0f)
             {
-                t += Time.deltaTime / lerpTime;
-                renderer.material.color = Color.Lerp(originColor, targetColor, t);
+                t -= Time.deltaTime / lerpTime;
+                MatColor = Color.Lerp(originColor, targetColor, t);
                 yield return null;
             }
         }
+    }
+
+    private void SetColor()
+    {
+
     }
 
 

@@ -5,14 +5,18 @@ using UnityEngine;
 public class ParticleLauncherBase : MonoBehaviour
 {
     [SerializeField] ParticleSystem particleLauncher;
-    [SerializeField] ParticleSystem splatterParticles;
     [SerializeField] Gradient particleColorGradient;
-    [SerializeField] ParticleDecalPool splatDecalPool;
 
+    SplatParticleDecalPool splatDecalPool;
+    ParticleSystem splatterParticles;
     List<ParticleCollisionEvent> collisionEvents;
 
     protected virtual void Start()
     {
+        SplatterParticle splatterParticle = FindObjectOfType<SplatterParticle>();
+        splatterParticles = splatterParticle.GetComponent<ParticleSystem>();
+
+        splatDecalPool = FindObjectOfType<SplatParticleDecalPool>();
         collisionEvents = new List<ParticleCollisionEvent>();
     }
 
@@ -32,7 +36,6 @@ public class ParticleLauncherBase : MonoBehaviour
             splatDecalPool.ParticleHit(collisionEvents[i], particleColorGradient);
             EmitAtLocation(collisionEvents[i]);
         }
-
     }
 
     void EmitAtLocation(ParticleCollisionEvent particleCollisionEvent)

@@ -35,8 +35,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4276409696838914}
   - component: {fileID: 198153304871664054}
-  - component: {fileID: 114850832907701386}
   - component: {fileID: 199424596427625046}
+  - component: {fileID: 114978676064987830}
   m_Layer: 0
   m_Name: SplaterParticleDecals
   m_TagString: Untagged
@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 198720548585056146}
   - component: {fileID: 199346290984619710}
   - component: {fileID: 114955275960507356}
+  - component: {fileID: 114425521957620960}
   m_Layer: 0
   m_Name: SplatterParticles
   m_TagString: Untagged
@@ -135,6 +136,17 @@ Transform:
   m_Father: {fileID: 4032082812888568}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114425521957620960
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1906067571412398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba46adbf26a9fbc4facf862272824cc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114434799969466796
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -146,23 +158,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e92702387b83815469beba82c996f217, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDecals: 500
-  decalSizeMin: 0.15
-  decalSizeMax: 0.35
---- !u!114 &114850832907701386
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1214219466383074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e92702387b83815469beba82c996f217, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxDecals: 500
-  decalSizeMin: 0.5
-  decalSizeMax: 1.5
+  maxDecals: 2000
+  decalSizeMin: 0.05
+  decalSizeMax: 0.15
 --- !u!114 &114955275960507356
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -205,6 +203,20 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   dropletDecalPool: {fileID: 114434799969466796}
+--- !u!114 &114978676064987830
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1214219466383074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ecd0eae104eab24a869ca5784023c9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDecals: 5000
+  decalSizeMin: 0.25
+  decalSizeMax: 0.5
 --- !u!198 &198153304871664054
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -265,7 +277,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 359935071
+  randomSeed: 1853144060
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3626,7 +3638,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1847125351
+  randomSeed: -1546440344
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -5972,7 +5984,7 @@ ParticleSystem:
     radiusScale: 0.1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 512
+      m_Bits: 768
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 2
@@ -6843,7 +6855,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1070034762
+  randomSeed: -1652837245
   InitialModule:
     serializedVersion: 3
     enabled: 1
