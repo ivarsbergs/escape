@@ -11,8 +11,6 @@ public class BleedFX : ParticleLauncherBase
     protected override void Start()
     {
         base.Start();
-        SplatterParticle splatterParticle = FindObjectOfType<SplatterParticle>();
-        splatterParticles = splatterParticle.GetComponent<ParticleSystem>();
         StartCoroutine(BleedRoutine());
     }
 

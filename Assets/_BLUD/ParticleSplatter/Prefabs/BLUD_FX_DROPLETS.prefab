@@ -35,8 +35,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4276409696838914}
   - component: {fileID: 198153304871664054}
-  - component: {fileID: 114850832907701386}
   - component: {fileID: 199424596427625046}
+  - component: {fileID: 114978676064987830}
   m_Layer: 0
   m_Name: SplaterParticleDecals
   m_TagString: Untagged
@@ -161,20 +161,6 @@ MonoBehaviour:
   maxDecals: 2000
   decalSizeMin: 0.05
   decalSizeMax: 0.15
---- !u!114 &114850832907701386
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1214219466383074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e92702387b83815469beba82c996f217, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxDecals: 5000
-  decalSizeMin: 0.25
-  decalSizeMax: 0.5
 --- !u!114 &114955275960507356
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -217,6 +203,20 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   dropletDecalPool: {fileID: 114434799969466796}
+--- !u!114 &114978676064987830
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1214219466383074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ecd0eae104eab24a869ca5784023c9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDecals: 5000
+  decalSizeMin: 0.25
+  decalSizeMax: 0.5
 --- !u!198 &198153304871664054
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -277,7 +277,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 359935071
+  randomSeed: 1853144060
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3638,7 +3638,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1847125351
+  randomSeed: -1546440344
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -6855,7 +6855,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1070034762
+  randomSeed: -1652837245
   InitialModule:
     serializedVersion: 3
     enabled: 1
