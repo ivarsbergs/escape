@@ -152,6 +152,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114758836274176386, guid: 19317fdd10df61f4e96d19436666652d,
+        type: 2}
+      propertyPath: targetColor.g
+      value: 0.88965523
+      objectReference: {fileID: 0}
+    - target: {fileID: 114758836274176386, guid: 19317fdd10df61f4e96d19436666652d,
+        type: 2}
+      propertyPath: targetColor.a
+      value: 0.478
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 19317fdd10df61f4e96d19436666652d, type: 2}
   m_IsPrefabParent: 0
@@ -315,5 +325,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
-  distance: 100
+    m_Bits: 512
+  distance: 5
