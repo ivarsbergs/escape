@@ -167,7 +167,13 @@ public class Doctor : MonoBehaviour
         if (!EndLevelControl.Instance.gameEnded)
         {
             Debug.Log("STAB!");
+            Invoke("CallRestart", 2f);
         }
+    }
+
+    void CallRestart()
+    {
+        EndLevelControl.Instance.RestartGame();
     }
 
     public void PlayStepSound()
