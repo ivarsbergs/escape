@@ -134,9 +134,9 @@ public class Doctor : MonoBehaviour
                 {
                     syringeObj.SetActive(true);
                     Invoke("PlaySyringeStab", 0.4f);
+                    Invoke("CallPlayerStabbed", 0.4f);
                 }
 
-                Invoke("CallPlayerStabbed", 1f);
             }
         }
     }
