@@ -28,7 +28,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 126
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1052053065764734
 GameObject:
@@ -654,7 +654,7 @@ GameObject:
   - component: {fileID: 33102543416361616}
   - component: {fileID: 23278815094577776}
   - component: {fileID: 64457739241987486}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: PaddedRoom_Bed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4521,7 +4521,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: baf7cdc5611a1d34a8e0a35b561c1f62, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.825
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4559,7 +4559,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -4726,8 +4726,8 @@ MonoBehaviour:
   targetColor: {r: 1, g: 0.88965523, b: 0, a: 0.478}
   pentagrammonDrawnGradient:
     serializedVersion: 2
-    key0: {r: 0.7647059, g: 0, b: 0, a: 1}
-    key1: {r: 0.28676468, g: 0, b: 0, a: 1}
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -4754,7 +4754,7 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   lerpTime: 2
-  maxZ: 0.05
+  maxZ: 0.01
 --- !u!114 &114253399603328496
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 198451556061355048}
   - component: {fileID: 199311110428276026}
   - component: {fileID: 114618665660811454}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BLUD_FX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 4814477110669696}
   - component: {fileID: 54876804706748242}
   - component: {fileID: 135862973524375424}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: upperarm_r.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 144310775873626810}
   - component: {fileID: 144663752769276116}
   - component: {fileID: 135734515808700114}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: lowerarm_r.001
   m_TagString: Hand
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4635710690904340}
   - component: {fileID: 114096680020456832}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BLUD_DRAWER
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4685119426014572}
   - component: {fileID: 137389869615597752}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Doctor_Arm.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4863291901203936}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: hand_r.001_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 4667864730459452}
   - component: {fileID: 95238531412119764}
   - component: {fileID: 114935207467528748}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Doctor_Arm_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4922888706617078}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Doctor_Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 4758180383073080}
   - component: {fileID: 54959756708980512}
   - component: {fileID: 135442469687912438}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: hand_r.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -378,8 +378,8 @@ MonoBehaviour:
   particleLauncher: {fileID: 198451556061355048}
   particleColorGradient:
     serializedVersion: 2
-    key0: {r: 0.32941177, g: 0, b: 0, a: 1}
-    key1: {r: 0.32941177, g: 0, b: 0, a: 1}
+    key0: {r: 0.21960784, g: 0, b: 0, a: 1}
+    key1: {r: 0.21960784, g: 0, b: 0, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
