@@ -23,6 +23,8 @@ public class Doctor : MonoBehaviour
     public GameObject doctorBothArms;
     public GameObject doctorOneArm;
 
+    public GameObject syringeObj;
+
     public AudioSource mouthAudioSource;
     public AudioSource armAudioSource;
     public AudioSource feetAudioSource;
@@ -130,6 +132,7 @@ public class Doctor : MonoBehaviour
                 }
                 else
                 {
+                    syringeObj.SetActive(true);
                     Invoke("PlaySyringeStab", 0.4f);
                 }
 
