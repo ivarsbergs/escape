@@ -121,6 +121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4667864730459452}
   - component: {fileID: 95238531412119764}
+  - component: {fileID: 114935207467528748}
   m_Layer: 0
   m_Name: Doctor_Arm_4
   m_TagString: Untagged
@@ -406,6 +407,18 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   spawnParticleSize: 0.25
   intensity: 4
+--- !u!114 &114935207467528748
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1797631678268006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7dcf39c21031164f98354b26908e7b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holdableRigidbody: {fileID: 54494860776059780}
 --- !u!135 &135442469687912438
 SphereCollider:
   m_ObjectHideFlags: 1

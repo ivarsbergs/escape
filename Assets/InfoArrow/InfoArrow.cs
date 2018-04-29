@@ -54,7 +54,7 @@ public class InfoArrow : Singleton<InfoArrow>
     {
         isEnabled = flag;
         meshRoot.gameObject.SetActive(isEnabled);
-        if (isEnabled) StartCoroutine(ArrowRoutine());
+        //if (isEnabled) StartCoroutine(ArrowRoutine());
     }
 
 }

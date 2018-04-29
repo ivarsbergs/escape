@@ -28,6 +28,7 @@ public class ControllerBehaviour : MonoBehaviour
         trackedObj = GetComponent<SteamVR_TrackedObject>();
         this.cursorRenderer = Cursor.GetComponent<Renderer>();
         this.grabJoint.connectedBody = null;
+        this.liveHand = null;
     }
     void Start()
     {
@@ -41,6 +42,10 @@ public class ControllerBehaviour : MonoBehaviour
             rigidbody.velocity = device.velocity;
             rigidbody.angularVelocity = device.angularVelocity;
             grabJoint.connectedBody = null;
+        }
+        if(this.liveHand != null && !this.device.GetPress(EVRButtonId.k_EButton_SteamVR_Trigger))
+        {
+            this.liveHand = null;
         }
         /*if(this.device.GetPress(EVRButtonId.k_EButton_SteamVR_Trigger))
         {
@@ -69,20 +74,29 @@ public class ControllerBehaviour : MonoBehaviour
         if (other.tag == "LiveHand")
         {
             this.cursorRenderer.material = ActiveMaterial;
-            if (this.device.GetPressDown(EVRButtonId.k_EButton_SteamVR_Trigger) && grabJoint.connectedBody == null)
+            if (this.device.GetPressDown(EVRButtonId.k_EButton_SteamVR_Trigger) && this.liveHand == null)
             {
-                grabJoint.connectedBody = other.GetComponent<Rigidbody>();
+                this.liveHand = other.gameObject;
             }
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == this.liveHand)
+        Debug.Log("Exited " + other.tag);
+        if (this.liveHand == other.gameObject)
         {
+
+            other.gameObject.GetComponent<LiveHandBehaviour>().doctor.RipOffRand();
+            Debug.Log("Ripped hand " + this.gameObject.name);
             GameObject hand = Instantiate(HandPrefab);
+            hand.transform.position = this.transform.position;
+            hand.transform.rotation = this.transform.rotation;
+            //hand.transform.position += new Vector3(0, 0, 1f);
             hand.transform.parent = this.HandParent.transform;
+            this.grabJoint.connectedBody = hand.GetComponent<HandBehaviour>().holdableRigidbody;
             this.liveHand = null;
         }
+        
     }
 }

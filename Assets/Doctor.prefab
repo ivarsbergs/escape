@@ -2224,9 +2224,11 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4084101874753002}
+  - component: {fileID: 135468326418225880}
+  - component: {fileID: 114467361371679970}
   m_Layer: 0
   m_Name: lowerarm_r
-  m_TagString: Untagged
+  m_TagString: LiveHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6563,6 +6565,18 @@ MonoBehaviour:
   revolutionsClockwiseField: {fileID: 0}
   handlesScale: 1
   handlesColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &114467361371679970
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1692087155677650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66e18a3492fc7499e9d0b62e81034541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doctor: {fileID: 114037301870780066}
 --- !u!114 &114479233888693326
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6736,6 +6750,18 @@ MonoBehaviour:
   eventMode: 0
   pointsMode: 0
   forceChangedEventMode: 2
+--- !u!135 &135468326418225880
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1692087155677650}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &136073014384941484
 CapsuleCollider:
   m_ObjectHideFlags: 1
