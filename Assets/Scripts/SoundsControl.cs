@@ -44,6 +44,7 @@ public class SoundsControl : MonoBehaviour {
     public AudioClip doctorYellClip;
     public AudioClip doctorTalkClip;
     public AudioClip armTearClip;
+    public AudioClip stepClip;
 
     private void Awake()
     {
@@ -96,6 +97,13 @@ public class SoundsControl : MonoBehaviour {
                 break;
             case Sounds.SYRINGE_STAB:
                 behindHeadSource.PlayOneShot(syringeClip);
+                break;
+            case Sounds.FOOTSTEP:
+                if (DoctorControl.Instance.currentDoctor != null)
+                {
+                    DoctorControl.Instance.currentDoctor.feetAudioSource.Stop();
+                    DoctorControl.Instance.currentDoctor.feetAudioSource.PlayOneShot(stepClip);
+                }
                 break;
         }
     }
