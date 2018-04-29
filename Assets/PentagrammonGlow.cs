@@ -7,6 +7,7 @@ public class PentagrammonGlow : MonoBehaviour
     [SerializeField] private Color targetColor = Color.red;
     [SerializeField] private Gradient pentagrammonDrawnGradient;
     [SerializeField] private float lerpTime = 1f;
+    [SerializeField] private float maxZ = 0.01f;
 
     private Renderer _renderer;
     private Color _originColor;
@@ -38,29 +39,46 @@ public class PentagrammonGlow : MonoBehaviour
     {
         StopCoroutine(glowRoutine);
         StartCoroutine(GlowDrawn());
+        StartCoroutine(Move());
+    }
+
+    private IEnumerator Move()
+    {
+        float t = 0f;
+        float originalZ = transform.localPosition.z;
+
+        while (t <= 1f)
+        {
+            t += Time.deltaTime / lerpTime;
+
+            float z = Mathf.Lerp(originalZ, maxZ, t);
+            Vector3 newVec = transform.localPosition;
+            newVec.z = z;
+
+            transform.localPosition = newVec;
+
+            yield return null;
+        }
     }
 
     private IEnumerator GlowDrawn()
     {
         while (true)
         {
-            while (true)
+            float t = 0f;
+
+            while (t <= 1f)
             {
-                float t = 0f;
+                t += Time.deltaTime / lerpTime;
+                MatColor = pentagrammonDrawnGradient.Evaluate(t);
+                yield return null;
+            }
 
-                while (t <= 1f)
-                {
-                    t += Time.deltaTime / lerpTime;
-                    MatColor = pentagrammonDrawnGradient.Evaluate(t);
-                    yield return null;
-                }
-
-                while (t >= 0f)
-                {
-                    t -= Time.deltaTime / lerpTime;
-                    MatColor = pentagrammonDrawnGradient.Evaluate(t);
-                    yield return null;
-                }
+            while (t >= 0f)
+            {
+                t -= Time.deltaTime / lerpTime;
+                MatColor = pentagrammonDrawnGradient.Evaluate(t);
+                yield return null;
             }
         }
     }
