@@ -5,9 +5,13 @@ using UnityEngine;
 public class PentagrammonGlow : MonoBehaviour
 {
     [SerializeField] private Color targetColor = Color.red;
+    [SerializeField] private Gradient pentagrammonDrawnGradient;
     [SerializeField] private float lerpTime = 1f;
 
     private Renderer _renderer;
+    private Color _originColor;
+
+    Coroutine glowRoutine;
 
     private Color MatColor
     {
@@ -21,36 +25,66 @@ public class PentagrammonGlow : MonoBehaviour
         }
     }
 
-    private IEnumerator Start()
+    private void Start()
     {
         _renderer = GetComponent<Renderer>();
         Color originColor = MatColor;
 
+        glowRoutine = StartCoroutine(GlowBase());
+        PentagrammonManager.Instance.OnPentagramDrawn += Instance_OnPentagramDrawn;
+    }
+
+    private void Instance_OnPentagramDrawn()
+    {
+        StopCoroutine(glowRoutine);
+        StartCoroutine(GlowDrawn());
+    }
+
+    private IEnumerator GlowDrawn()
+    {
+        while (true)
+        {
+            while (true)
+            {
+                float t = 0f;
+
+                while (t <= 1f)
+                {
+                    t += Time.deltaTime / lerpTime;
+                    MatColor = pentagrammonDrawnGradient.Evaluate(t);
+                    yield return null;
+                }
+
+                while (t >= 0f)
+                {
+                    t -= Time.deltaTime / lerpTime;
+                    MatColor = pentagrammonDrawnGradient.Evaluate(t);
+                    yield return null;
+                }
+            }
+        }
+    }
+
+    private IEnumerator GlowBase()
+    {
         while (true)
         {
             float t = 0f;
 
-
             while (t <= 1f)
             {
                 t += Time.deltaTime / lerpTime;
-                MatColor = Color.Lerp(originColor, targetColor, t);
+                MatColor = Color.Lerp(_originColor, targetColor, t);
                 yield return null;
             }
 
             while (t >= 0f)
             {
                 t -= Time.deltaTime / lerpTime;
-                MatColor = Color.Lerp(originColor, targetColor, t);
+                MatColor = Color.Lerp(_originColor, targetColor, t);
                 yield return null;
             }
         }
     }
-
-    private void SetColor()
-    {
-
-    }
-
 
 }
