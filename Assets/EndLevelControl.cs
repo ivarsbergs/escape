@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class EndLevelControl : MonoBehaviour {
 
@@ -19,7 +20,7 @@ public class EndLevelControl : MonoBehaviour {
     public GameObject unicornDoor;
     public Animator unicornAnimator;
 
-    public CanvasGroup fadeToWhite;
+    public Renderer fadeToWhiteRenderer;
 
     public bool gameEnded = false;
     private bool _doorOpened = false;
@@ -64,7 +65,7 @@ public class EndLevelControl : MonoBehaviour {
         {
             Debug.Log(_lerpFadeToWhiteTime);
 
-            fadeToWhite.alpha = Mathf.Lerp(0, 1, _lerpFadeToWhiteTime);
+            //fadeToWhiteRenderer.material.color = .alpha = Mathf.Lerp(0, 1, _lerpFadeToWhiteTime);
             _lerpFadeToWhiteTime += Time.deltaTime / 3;
         }
     }
@@ -77,5 +78,10 @@ public class EndLevelControl : MonoBehaviour {
     public void StartFadeToWhite()
     {
         _unicornArrived = true;
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
