@@ -995,6 +995,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4746688148504828}
+  - component: {fileID: 114373119892317760}
   m_Layer: 8
   m_Name: Pentagrammon
   m_TagString: Untagged
@@ -4522,6 +4523,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5d6347f3fb538a842bcb6bfa7ce00371, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114373119892317760
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1993482482326156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 471cae26ec9644d45a6f0d82a01bcb1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114473176598839690

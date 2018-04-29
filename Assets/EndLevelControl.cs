@@ -44,7 +44,7 @@ public class EndLevelControl : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        PentagramRaycaster.Instance.OnPentagramDrawn += StartOpeningUnicornDoor;
+        PentagrammonManager.Instance.OnPentagramDrawn += StartOpeningUnicornDoor;
 
     }
 	
