@@ -170,8 +170,9 @@ public class Doctor : MonoBehaviour
         if (!EndLevelControl.Instance.gameEnded && isAlive)
         {
             EndLevelControl.Instance.gameWon = false;
-            EndLevelControl.Instance.StartFadeToWhite();
-            Debug.Log("STAB!");
+            //EndLevelControl.Instance.StartFadeToWhite();
+            DoctorControl.Instance.SendPlayerStabbedEvent();
+
             Invoke("CallRestart", 2f);
         }
     }
