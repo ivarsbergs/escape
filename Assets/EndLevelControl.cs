@@ -20,13 +20,14 @@ public class EndLevelControl : MonoBehaviour {
     public GameObject unicornDoor;
     public Animator unicornAnimator;
 
-    public Renderer fadeToWhiteRenderer;
+    public Renderer fadeToColorRenderer;
 
     public bool gameEnded = false;
+    public bool gameWon = false;
     private bool _doorOpened = false;
-    private bool _unicornArrived = false;
+    private bool _startFading = false;
     private float _lerpLightingTime = 0;
-    private float _lerpFadeToWhiteTime = 0;
+    private float _lerpFadeToColorTime = 0;
 
     private void Awake()
     {
@@ -40,6 +41,7 @@ public class EndLevelControl : MonoBehaviour {
         unicornDoor.GetComponent<Animator>().Play("UnicornDoorAnimation");
 
         StartMovingUnicorn();
+        gameWon = true;
         gameEnded = true;
     }
 
@@ -61,23 +63,30 @@ public class EndLevelControl : MonoBehaviour {
             _lerpLightingTime += Time.deltaTime / 25;
         }
 
-        if (_unicornArrived)
+        if (_startFading)
         {
-            Debug.Log(_lerpFadeToWhiteTime);
+            Debug.Log(_lerpFadeToColorTime);
 
-            //fadeToWhiteRenderer.material.color = .alpha = Mathf.Lerp(0, 1, _lerpFadeToWhiteTime);
-            _lerpFadeToWhiteTime += Time.deltaTime / 3;
+            Color c = (gameWon ? Color.white : Color.black);
+            fadeToColorRenderer.material.color = new Color(c.r, c.g, c.b, Mathf.Lerp(0, 1, _lerpFadeToColorTime));
+            _lerpFadeToColorTime += Time.deltaTime / 5;
         }
     }
 
     void StartMovingUnicorn()
     {
         unicornAnimator.Play("MoveUnicorn");
+        Invoke("PlayUnicornSound", 5f);
+    }
+
+    void PlayUnicornSound()
+    {
+        SoundsControl.Instance.PlaySound(SoundsControl.Sounds.UNICORN);
     }
 
     public void StartFadeToWhite()
     {
-        _unicornArrived = true;
+        _startFading = true;
     }
 
     public void RestartGame()

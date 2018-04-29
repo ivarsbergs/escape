@@ -29,6 +29,8 @@ public class Doctor : MonoBehaviour
     public AudioSource armAudioSource;
     public AudioSource feetAudioSource;
 
+    private bool isAlive = true;
+
 
     private bool _startedStabbing = false;
 
@@ -80,6 +82,7 @@ public class Doctor : MonoBehaviour
     {
         CancelInvoke("PlaySyringeStab");
         CancelInvoke("CallPlayerStabbed");
+        isAlive = false;
         StopMovingForward(false);
 
         doctorBothArms.SetActive(false);
@@ -110,7 +113,7 @@ public class Doctor : MonoBehaviour
 
     public void ReachPoint()
     {
-        if (!EndLevelControl.Instance.gameEnded)
+        if (!EndLevelControl.Instance.gameEnded && isAlive)
         {
             _pointCounter++;
 
@@ -164,8 +167,10 @@ public class Doctor : MonoBehaviour
 
     public void CallPlayerStabbed()
     {
-        if (!EndLevelControl.Instance.gameEnded)
+        if (!EndLevelControl.Instance.gameEnded && isAlive)
         {
+            EndLevelControl.Instance.gameWon = false;
+            EndLevelControl.Instance.StartFadeToWhite();
             Debug.Log("STAB!");
             Invoke("CallRestart", 2f);
         }
