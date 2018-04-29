@@ -9,7 +9,7 @@ public class Doctor : MonoBehaviour
 
     public const int POINTS_UNTIL_END = 4;
     public const int POINTS_UNTIL_DOOR_OPEN = 1;
-    public const float STABBING_DISTANCE = 1f;
+    public const float STABBING_DISTANCE = 0.8f;
 
     public GameObject doctorObj;
 
@@ -71,6 +71,7 @@ public class Doctor : MonoBehaviour
             animator.Play("Dead");
 
         SoundsControl.Instance.PlaySound(SoundsControl.Sounds.TEARING_ARM);
+        SoundsControl.Instance.PlaySound(SoundsControl.Sounds.DOCTOR_YELL);
 
         DoctorControl.Instance.SpawnDoctor();
     }
@@ -108,10 +109,19 @@ public class Doctor : MonoBehaviour
                 {
                     SoundsControl.Instance.PlaySound(SoundsControl.Sounds.DOCTOR_TALK);
                 }
+                else
+                {
+                    Invoke("PlaySyringeStab", 0.5f);
+                }
 
                 Invoke("CallPlayerStabbed", 1f);
             }
         }
+    }
+
+    public void PlaySyringeStab()
+    {
+        SoundsControl.Instance.PlaySound(SoundsControl.Sounds.SYRINGE_STAB);
     }
 
     public void CallOpenDoor()

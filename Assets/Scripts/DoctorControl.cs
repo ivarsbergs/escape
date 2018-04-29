@@ -38,7 +38,7 @@ public class DoctorControl : MonoBehaviour
     // Use this for initialization
     void Start () {
         StartSpawningDoctors();
-        SoundsControl.Instance.PlaySound(SoundsControl.Sounds.DOCTOR_TALK);
+        //SoundsControl.Instance.PlaySound(SoundsControl.Sounds.DOCTOR_TALK);
     }
 	
 	// Update is called once per frame

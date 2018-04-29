@@ -25,7 +25,8 @@ public class SoundsControl : MonoBehaviour {
         SPEAKER_1,
         SPEAKER_2,
         DOCTOR_TALK,
-        DOCTOR_YELL
+        DOCTOR_YELL,
+        SYRINGE_STAB
     }
 
     public AudioSource speakerSource;
@@ -84,6 +85,9 @@ public class SoundsControl : MonoBehaviour {
             case Sounds.DOCTOR_YELL:
                 if (DoctorControl.Instance.currentDoctor != null)
                     DoctorControl.Instance.currentDoctor.mouthAudioSource.PlayOneShot(doctorYellClip);
+                break;
+            case Sounds.SYRINGE_STAB:
+                behindHeadSource.PlayOneShot(syringeClip);
                 break;
         }
     }
