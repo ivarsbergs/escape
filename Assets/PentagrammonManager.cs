@@ -26,7 +26,7 @@ public class PentagrammonManager : Singleton<PentagrammonManager>
     {
         if (!isReady) return;
         uncheckedPentagrammonPoints.Remove(pentagrammonPoint);
-        pentagrammonPoint.GetComponent<MeshRenderer>().enabled = true;
+        //pentagrammonPoint.GetComponent<MeshRenderer>().enabled = true;
 
         if (uncheckedPentagrammonPoints.Count == 0)
         {
