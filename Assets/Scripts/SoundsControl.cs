@@ -81,7 +81,7 @@ public class SoundsControl : MonoBehaviour {
                 speakerSource.PlayOneShot(speaker2Clip);
                 break;
             case Sounds.SPEAKER_3:
-                speakerSource.PlayOneShot(speaker2Clip);
+                speakerSource.PlayOneShot(speaker3Clip);
                 break;
             case Sounds.DOCTOR_TALK:
                 if (DoctorControl.Instance.currentDoctor != null)
@@ -89,7 +89,10 @@ public class SoundsControl : MonoBehaviour {
                 break;
             case Sounds.DOCTOR_YELL:
                 if (DoctorControl.Instance.currentDoctor != null)
+                {
+                    DoctorControl.Instance.currentDoctor.mouthAudioSource.Stop();
                     DoctorControl.Instance.currentDoctor.mouthAudioSource.PlayOneShot(doctorYellClip);
+                }
                 break;
             case Sounds.SYRINGE_STAB:
                 behindHeadSource.PlayOneShot(syringeClip);

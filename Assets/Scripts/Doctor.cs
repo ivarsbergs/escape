@@ -20,6 +20,9 @@ public class Doctor : MonoBehaviour
     public BGCurve pathCurve;
     public BGCcCursorChangeLinear patchCursorChangeLinear;
 
+    public GameObject doctorBothArms;
+    public GameObject doctorOneArm;
+
     public AudioSource mouthAudioSource;
     public AudioSource armAudioSource;
 
@@ -68,18 +71,17 @@ public class Doctor : MonoBehaviour
         CancelInvoke("PlaySyringeStab");
         CancelInvoke("CallPlayerStabbed");
         StopMovingForward(false);
+
+        doctorBothArms.SetActive(false);
+        doctorOneArm.SetActive(true);
+
         foreach (Animator animator in animators)
             animator.Play("Dead");
 
         SoundsControl.Instance.PlaySound(SoundsControl.Sounds.TEARING_ARM);
         SoundsControl.Instance.PlaySound(SoundsControl.Sounds.DOCTOR_YELL);
 
-        if (DoctorControl.Instance.doctorNumber == 1)
-            SoundsControl.Instance.PlaySound(SoundsControl.Sounds.SPEAKER_2);
-        else if (DoctorControl.Instance.doctorNumber == 2)
-            SoundsControl.Instance.PlaySound(SoundsControl.Sounds.SPEAKER_3);
-
-        DoctorControl.Instance.CallNextSpawn();
+        DoctorControl.Instance.WaitForNextDispatcher();
     }
 
     public void StopMovingForward(bool keepLooking)
@@ -104,6 +106,7 @@ public class Doctor : MonoBehaviour
             {
                 Debug.Log("Open door");
                 Invoke("CallOpenDoor", 3.4f - patchCursorChangeLinear.Speed);
+                Invoke("CallOpenDoorSound", 2.2f - patchCursorChangeLinear.Speed);
             }
 
             if (_pointCounter >= POINTS_UNTIL_END)
@@ -117,7 +120,7 @@ public class Doctor : MonoBehaviour
                 }
                 else
                 {
-                    Invoke("PlaySyringeStab", 0.45f);
+                    Invoke("PlaySyringeStab", 0.4f);
                 }
 
                 Invoke("CallPlayerStabbed", 1f);
@@ -130,12 +133,19 @@ public class Doctor : MonoBehaviour
         SoundsControl.Instance.PlaySound(SoundsControl.Sounds.SYRINGE_STAB);
     }
 
+    public void CallOpenDoorSound()
+    {
+        if (!EndLevelControl.Instance.gameEnded)
+        {
+            SoundsControl.Instance.PlaySound(SoundsControl.Sounds.DOOR);
+        }
+    }
+
     public void CallOpenDoor()
     {
         if (!EndLevelControl.Instance.gameEnded)
         {
             DoctorControl.Instance.doorAnimator.Play("OpenDoor");
-            SoundsControl.Instance.PlaySound(SoundsControl.Sounds.DOOR);
         }
     }
 

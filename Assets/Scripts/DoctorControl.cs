@@ -36,19 +36,51 @@ public class DoctorControl : MonoBehaviour
     }
 
     // Use this for initialization
-    void Start () {
+    void Start() {
         CallNextSpawn();
         SoundsControl.Instance.PlaySound(SoundsControl.Sounds.SPEAKER_1);
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    // Update is called once per frame
+    void Update() {
+
+    }
+
+
+    public void WaitForNextDispatcher() {
+        if (DoctorControl.Instance.doctorNumber == 1)
+        {
+            Invoke("CallNextDispatcher", 3.5f);
+        }
+        else if (DoctorControl.Instance.doctorNumber == 2)
+        {
+            Invoke("CallNextDispatcher", 3.5f);
+        }
+        else
+        {
+            CallNextSpawn();
+        }
+    }
+
+    public void CallNextDispatcher()
+    {
+
+        if (DoctorControl.Instance.doctorNumber == 1)
+        {
+            SoundsControl.Instance.PlaySound(SoundsControl.Sounds.SPEAKER_2);
+            Invoke("SpawnDoctor", 9f);
+        }
+        else if (DoctorControl.Instance.doctorNumber == 2)
+        {
+            SoundsControl.Instance.PlaySound(SoundsControl.Sounds.SPEAKER_3);
+            Invoke("SpawnDoctor", 6f);
+        }
+
+    }
 
     public void CallNextSpawn()
     {
-        Invoke("SpawnDoctor", 3.5f);
+        Invoke("SpawnDoctor", 5f);
     }
 
     public void SpawnDoctor()
