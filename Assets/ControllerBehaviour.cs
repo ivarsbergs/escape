@@ -98,7 +98,20 @@ public class ControllerBehaviour : MonoBehaviour
             hand.transform.parent = this.HandParent.transform;
             this.grabJoint.connectedBody = hand.GetComponent<HandBehaviour>().holdableRigidbody;
             this.liveHand = null;
+            StartCoroutine(LongVibration(1, 3999));
+            //SteamVR_Controller.Input(4).TriggerHapticPulse(3000);
+
+            //GetComponent<SteamVR_TrackedObject>().index.get
         }
-        
     }
+
+    IEnumerator LongVibration(float length, ushort strength)
+    {
+        for (float i = 0; i < length; i += Time.deltaTime)
+        {
+            device.TriggerHapticPulse(strength);
+            yield return null; //every single frame for the duration of "length" you will vibrate at "strength" amount
+        }
+    }
+
 }
