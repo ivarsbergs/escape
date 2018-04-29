@@ -25,6 +25,7 @@ public class Doctor : MonoBehaviour
 
     public AudioSource mouthAudioSource;
     public AudioSource armAudioSource;
+    public AudioSource feetAudioSource;
 
 
     private bool _startedStabbing = false;
@@ -33,6 +34,13 @@ public class Doctor : MonoBehaviour
     void Start()
     {
         //test = GetComponent<BGCcCursor>();
+        float interval;
+        if (DoctorControl.Instance.doctorNumber == 1)
+            interval = DoctorControl.WALK_SOUND_INTERVAL;
+        else
+            interval = DoctorControl.RUN_SOUND_INTERVAL;
+
+        InvokeRepeating("PlayStepSound", 0.01f, interval);
     }
 
     // Update is called once per frame
@@ -89,6 +97,8 @@ public class Doctor : MonoBehaviour
         pathCursor.GetComponent<BGCcCursorObjectTranslate>().ObjectToManipulate = null;
         if (!keepLooking)
             pathCursor.GetComponent<BGCcCursorObjectRotate>().ObjectToManipulate = null;
+
+        CancelInvoke("PlayStepSound");
         //foreach (Transform child in testMath.transform)
         //{
         //    GameObject.Destroy(child.gameObject);
@@ -155,5 +165,10 @@ public class Doctor : MonoBehaviour
         {
             Debug.Log("STAB!");
         }
+    }
+
+    public void PlayStepSound()
+    {
+        SoundsControl.Instance.PlaySound(SoundsControl.Sounds.FOOTSTEP);
     }
 }

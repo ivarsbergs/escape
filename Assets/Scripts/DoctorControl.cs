@@ -14,8 +14,11 @@ public class DoctorControl : MonoBehaviour
         }
     }
 
-    private const float DEFAULT_WALK_SPEED = 1.5f;
-    private const float DEFAULT_RUN_SPEED = 2.8f;
+    public static float DEFAULT_WALK_SPEED = 1.5f;
+    public static float DEFAULT_RUN_SPEED = 2.8f;
+
+    public static float WALK_SOUND_INTERVAL = 0.42f;
+    public static float RUN_SOUND_INTERVAL = 0.4f;
     private Vector3 SPAWNING_POS = new Vector3(-4.7f, 2.83f, 1.93f);
 
     public GameObject doctorPrefab;
