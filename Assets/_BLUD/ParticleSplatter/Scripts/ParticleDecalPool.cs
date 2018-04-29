@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class ParticleDecalPool : MonoBehaviour
 {
-
-    public int maxDecals = 100;
-    public float decalSizeMin = .5f;
-    public float decalSizeMax = 1.5f;
+    [SerializeField] int maxDecals = 100;
+    [SerializeField] float decalSizeMin = .5f;
+    [SerializeField] float decalSizeMax = 1.5f;
 
     private ParticleSystem decalParticleSystem;
     private int particleDecalDataIndex;
@@ -20,10 +19,7 @@ public class ParticleDecalPool : MonoBehaviour
         particles = new ParticleSystem.Particle[maxDecals];
         particleData = new ParticleDecalData[maxDecals];
 
-        for (int i = 0; i < maxDecals; i++) 
-        {
-            particleData[i] = new ParticleDecalData();
-        }
+        for (int i = 0; i < maxDecals; i++) particleData[i] = new ParticleDecalData();
     }
 
     public void ParticleHit(ParticleCollisionEvent particleCollisionEvent, Gradient colorGradient)
