@@ -45,9 +45,11 @@ public class ControllerBehaviour : MonoBehaviour
             rigidbody.angularVelocity = device.angularVelocity;
             grabJoint.connectedBody = null;
         }
-        if(this.liveHand != null && !this.device.GetPress(EVRButtonId.k_EButton_SteamVR_Trigger))
+        if (this.liveHand != null && !this.device.GetPress(EVRButtonId.k_EButton_SteamVR_Trigger))
         {
             this.liveHand = null;
+            BleedFX bleedFX = liveHand.GetComponentInChildren<BleedFX>();
+            if (bleedFX != null) bleedFX.Dropped();
         }
         /*if(this.device.GetPress(EVRButtonId.k_EButton_SteamVR_Trigger))
         {
@@ -79,6 +81,9 @@ public class ControllerBehaviour : MonoBehaviour
             if (this.device.GetPressDown(EVRButtonId.k_EButton_SteamVR_Trigger) && this.liveHand == null)
             {
                 this.liveHand = other.gameObject;
+
+                BleedFX bleedFX = liveHand.GetComponentInChildren<BleedFX>();
+                if (bleedFX != null) bleedFX.PickedUp();
             }
         }
     }
@@ -97,6 +102,10 @@ public class ControllerBehaviour : MonoBehaviour
             //hand.transform.position += new Vector3(0, 0, 1f);
             hand.transform.parent = this.HandParent.transform;
             this.grabJoint.connectedBody = hand.GetComponent<HandBehaviour>().holdableRigidbody;
+
+            BleedFX bleedFX = liveHand.GetComponentInChildren<BleedFX>();
+            if (bleedFX != null) bleedFX.Dropped();
+
             this.liveHand = null;
             StartCoroutine(LongVibration(1, 3999));
             //SteamVR_Controller.Input(4).TriggerHapticPulse(3000);

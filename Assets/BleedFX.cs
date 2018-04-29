@@ -7,6 +7,8 @@ public class BleedFX : ParticleLauncherBase
     [SerializeField] private float spawnParticlePossibility = 0.25f;
     [SerializeField] private int intensity = 1;
 
+    private bool pickedUp = false;
+
     protected override void Start()
     {
         base.Start();
@@ -17,12 +19,25 @@ public class BleedFX : ParticleLauncherBase
     {
         while (true)
         {
-            if (Random.value < spawnParticlePossibility)
+            if (pickedUp)
             {
-                for (int i = 0; i < intensity; ++i) ShootParticle();
+                if (Random.value < spawnParticlePossibility)
+                {
+                    for (int i = 0; i < intensity; ++i) ShootParticle();
+                }
             }
 
             yield return null;
         }
+    }
+
+    public void PickedUp()
+    {
+        pickedUp = true;
+    }
+
+    public void Dropped()
+    {
+        pickedUp = false;
     }
 }
