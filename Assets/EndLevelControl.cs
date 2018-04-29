@@ -40,6 +40,9 @@ public class EndLevelControl : MonoBehaviour {
         //unicornDoor.SetActive(false);
         unicornDoor.GetComponent<Animator>().Play("UnicornDoorAnimation");
 
+        if (DoctorControl.Instance.currentDoctor != null)
+            Destroy(DoctorControl.Instance.currentDoctor.gameObject);
+
         StartMovingUnicorn();
         gameWon = true;
         gameEnded = true;
