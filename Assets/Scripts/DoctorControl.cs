@@ -14,6 +14,9 @@ public class DoctorControl : MonoBehaviour
         }
     }
 
+    public delegate void EventHandler();
+    public event EventHandler OnPlayerStabbed;
+
     public static float DEFAULT_WALK_SPEED = 1.5f;
     public static float DEFAULT_RUN_SPEED = 2.8f;
 
@@ -49,6 +52,10 @@ public class DoctorControl : MonoBehaviour
 
     }
 
+    public void SendPlayerStabbedEvent()
+    {
+        if (OnPlayerStabbed != null) OnPlayerStabbed.Invoke();
+    }
 
     public void WaitForNextDispatcher()
     {
@@ -89,7 +96,7 @@ public class DoctorControl : MonoBehaviour
 
     public void SpawnDoctor()
     {
-        if (doctorNumber >= 3)
+        if (doctorNumber >= 3 || EndLevelControl.Instance.gameEnded)
             return;
 
         GameObject go = Instantiate(doctorPrefab, doctorContainer);
