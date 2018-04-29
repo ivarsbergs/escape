@@ -72,7 +72,7 @@ public class DoctorControl : MonoBehaviour
         if (DoctorControl.Instance.doctorNumber == 1)
         {
             SoundsControl.Instance.PlaySound(SoundsControl.Sounds.SPEAKER_2);
-            Invoke("SpawnDoctor", 9f);
+            Invoke("SpawnDoctor", 11f);
         }
         else if (DoctorControl.Instance.doctorNumber == 2)
         {
@@ -89,6 +89,9 @@ public class DoctorControl : MonoBehaviour
 
     public void SpawnDoctor()
     {
+        if (doctorNumber >= 3)
+            return;
+
         GameObject go = Instantiate(doctorPrefab, doctorContainer);
         go.transform.localPosition = SPAWNING_POS;
 
