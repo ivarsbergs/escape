@@ -15,6 +15,8 @@ public class ControllerBehaviour : MonoBehaviour
     private GameObject liveHand;
     private Renderer cursorRenderer;
     protected SteamVR_TrackedObject trackedObj;
+
+    public GameObject ArmSpawnerMarker;
     public SteamVR_Controller.Device device
     {
         get
@@ -90,8 +92,8 @@ public class ControllerBehaviour : MonoBehaviour
             other.gameObject.GetComponent<LiveHandBehaviour>().doctor.RipOffRand();
             Debug.Log("Ripped hand " + this.gameObject.name);
             GameObject hand = Instantiate(HandPrefab);
-            hand.transform.position = this.transform.position;
-            hand.transform.rotation = this.transform.rotation;
+            hand.transform.position = this.ArmSpawnerMarker.transform.position;
+            hand.transform.rotation = this.ArmSpawnerMarker.transform.rotation;
             //hand.transform.position += new Vector3(0, 0, 1f);
             hand.transform.parent = this.HandParent.transform;
             this.grabJoint.connectedBody = hand.GetComponent<HandBehaviour>().holdableRigidbody;
