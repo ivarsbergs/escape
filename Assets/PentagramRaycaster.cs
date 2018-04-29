@@ -23,14 +23,13 @@ public class PentagramRaycaster : MonoBehaviour
     {
         while (!PentagrammonManager.Instance.PentagramDrawn)
         {
-            RaycastPentagrammonPoint();
             yield return null;
+            RaycastPentagrammonPoint();
         }
     }
 
     private void RaycastPentagrammonPoint()
     {
-
         Ray ray;
 
         if (_camera == null)

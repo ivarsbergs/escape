@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using Sacristan.Utils;
 using UnityEngine;
 
@@ -10,16 +11,20 @@ public class PentagrammonManager : Singleton<PentagrammonManager>
     List<PentagrammonPoint> uncheckedPentagrammonPoints;
 
     private bool pentagramDrawn = false;
+    private bool isReady = false;
 
     public bool PentagramDrawn { get { return pentagramDrawn; } }
 
-    private void Start()
+    private IEnumerator Start()
     {
         uncheckedPentagrammonPoints = new List<PentagrammonPoint>(FindObjectsOfType<PentagrammonPoint>());
+        yield return null;
+        isReady = true;
     }
 
     public void PointDrawn(PentagrammonPoint pentagrammonPoint)
     {
+        if (!isReady) return;
         uncheckedPentagrammonPoints.Remove(pentagrammonPoint);
         pentagrammonPoint.GetComponent<MeshRenderer>().enabled = true;
 
