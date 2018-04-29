@@ -7166,7 +7166,7 @@ MonoBehaviour:
   patchCursorChangeLinear: {fileID: 114670205302456410}
   doctorBothArms: {fileID: 1153309045268896}
   doctorOneArm: {fileID: 1952290075705940}
-  syringeObj: {fileID: 0}
+  syringeObj: {fileID: 1929445838856574}
   mouthAudioSource: {fileID: 82504125148728942}
   armAudioSource: {fileID: 82022464682556336}
   feetAudioSource: {fileID: 82593745964851956}
