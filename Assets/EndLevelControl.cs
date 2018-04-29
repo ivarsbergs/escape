@@ -35,11 +35,11 @@ public class EndLevelControl : MonoBehaviour {
     public void StartOpeningUnicornDoor()
     {
         _doorOpened = true;
-        gameEnded = true;
         //unicornDoor.SetActive(false);
         unicornDoor.GetComponent<Animator>().Play("UnicornDoorAnimation");
 
         StartMovingUnicorn();
+        gameEnded = true;
     }
 
     // Use this for initialization

@@ -27,6 +27,9 @@ public class DoctorControl : MonoBehaviour
 
     private bool firstSpawned = false;
 
+    public int doctorNumber = 0;
+    private Doctor _currentDoctor;
+
     private void Awake()
     {
         instance = this;
@@ -35,6 +38,7 @@ public class DoctorControl : MonoBehaviour
     // Use this for initialization
     void Start () {
         StartSpawningDoctors();
+        SoundsControl.Instance.PlaySound(SoundsControl.Sounds.DOCTOR_TALK);
     }
 	
 	// Update is called once per frame
@@ -62,7 +66,17 @@ public class DoctorControl : MonoBehaviour
 
         Doctor d = go.GetComponent<Doctor>();
         d.SetMovingSpeed(firstSpawned ? DEFAULT_RUN_SPEED : DEFAULT_WALK_SPEED);
+        _currentDoctor = d;
 
+        doctorNumber++;
         firstSpawned = true;
+    }
+
+    public void EndGame()
+    {
+        if (!ReferenceEquals(_currentDoctor, null))
+        {
+            _currentDoctor.StopMovingForward(false);
+        }
     }
 }

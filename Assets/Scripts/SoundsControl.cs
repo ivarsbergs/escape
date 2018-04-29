@@ -21,10 +21,28 @@ public class SoundsControl : MonoBehaviour {
         TEARING_ARM,
         SCREAM,
         DOOR,
-        UNICORN
+        UNICORN,
+        SPEAKER_1,
+        SPEAKER_2,
+        DOCTOR_TALK,
+        DOCTOR_YELL
     }
 
+    public AudioSource speakerSource;
     public AudioSource doorSource;
+    public AudioSource unicornSource;
+    public AudioSource behindHeadSource;
+    public AudioSource doctorSource;
+    public AudioSource doctorArmSource;
+
+    public AudioClip speaker1Clip;
+    public AudioClip speaker2Clip;
+    public AudioClip doorBuzzClip;
+    public AudioClip unicornClip;
+    public AudioClip syringeClip;
+    public AudioClip doctorYellClip;
+    public AudioClip doctorTalkClip;
+    public AudioClip armTearClip;
 
     private void Awake()
     {
@@ -46,7 +64,25 @@ public class SoundsControl : MonoBehaviour {
         switch (soundSelected)
         {
             case Sounds.DOOR:
-                doorSource.Play();
+                doorSource.PlayOneShot(doorBuzzClip);
+                break;
+            case Sounds.UNICORN:
+                unicornSource.PlayOneShot(unicornClip);
+                break;
+            case Sounds.TEARING_ARM:
+                doctorArmSource.PlayOneShot(armTearClip);
+                break;
+            case Sounds.SPEAKER_1:
+                speakerSource.PlayOneShot(speaker1Clip);
+                break;
+            case Sounds.SPEAKER_2:
+                speakerSource.PlayOneShot(speaker2Clip);
+                break;
+            case Sounds.DOCTOR_TALK:
+                doctorSource.PlayOneShot(doctorTalkClip);
+                break;
+            case Sounds.DOCTOR_YELL:
+                doctorSource.PlayOneShot(doctorYellClip);
                 break;
         }
     }
