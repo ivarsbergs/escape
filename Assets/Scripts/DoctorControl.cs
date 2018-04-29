@@ -26,8 +26,6 @@ public class DoctorControl : MonoBehaviour
 
     public Animator doorAnimator;
 
-    public InfoArrow infoArrow;
-
     private bool firstSpawned = false;
 
     public int doctorNumber = 0;
@@ -39,18 +37,21 @@ public class DoctorControl : MonoBehaviour
     }
 
     // Use this for initialization
-    void Start() {
+    void Start()
+    {
         CallNextSpawn();
         SoundsControl.Instance.PlaySound(SoundsControl.Sounds.SPEAKER_1);
     }
 
     // Update is called once per frame
-    void Update() {
+    void Update()
+    {
 
     }
 
 
-    public void WaitForNextDispatcher() {
+    public void WaitForNextDispatcher()
+    {
         if (DoctorControl.Instance.doctorNumber == 1)
         {
             Invoke("CallNextDispatcher", 3.5f);
@@ -91,13 +92,13 @@ public class DoctorControl : MonoBehaviour
         GameObject go = Instantiate(doctorPrefab, doctorContainer);
         go.transform.localPosition = SPAWNING_POS;
 
-        if (!firstSpawned)
+        if (!firstSpawned && InfoArrow.Instance != null)
         {
-            infoArrow.transform.localPosition = new Vector3(4, 4, 5);
-            infoArrow.Target = go.transform;
-            infoArrow.Enable(true);
+            InfoArrow.Instance.transform.localPosition = new Vector3(4, 4, 5);
+            InfoArrow.Instance.Target = go.transform;
+            InfoArrow.Instance.Enable(true);
         }
-        
+
 
         Doctor d = go.GetComponent<Doctor>();
         d.SetMovingSpeed(firstSpawned ? DEFAULT_RUN_SPEED : DEFAULT_WALK_SPEED);
