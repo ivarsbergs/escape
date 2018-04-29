@@ -65,6 +65,7 @@ public class Doctor : MonoBehaviour
 
     public void RipOffRand()
     {
+        CancelInvoke("PlaySyringeStab");
         CancelInvoke("CallPlayerStabbed");
         StopMovingForward(false);
         foreach (Animator animator in animators)
@@ -73,7 +74,12 @@ public class Doctor : MonoBehaviour
         SoundsControl.Instance.PlaySound(SoundsControl.Sounds.TEARING_ARM);
         SoundsControl.Instance.PlaySound(SoundsControl.Sounds.DOCTOR_YELL);
 
-        DoctorControl.Instance.SpawnDoctor();
+        if (DoctorControl.Instance.doctorNumber == 1)
+            SoundsControl.Instance.PlaySound(SoundsControl.Sounds.SPEAKER_2);
+        else if (DoctorControl.Instance.doctorNumber == 2)
+            SoundsControl.Instance.PlaySound(SoundsControl.Sounds.SPEAKER_3);
+
+        DoctorControl.Instance.CallNextSpawn();
     }
 
     public void StopMovingForward(bool keepLooking)
@@ -111,7 +117,7 @@ public class Doctor : MonoBehaviour
                 }
                 else
                 {
-                    Invoke("PlaySyringeStab", 0.5f);
+                    Invoke("PlaySyringeStab", 0.45f);
                 }
 
                 Invoke("CallPlayerStabbed", 1f);

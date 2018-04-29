@@ -24,6 +24,7 @@ public class SoundsControl : MonoBehaviour {
         UNICORN,
         SPEAKER_1,
         SPEAKER_2,
+        SPEAKER_3,
         DOCTOR_TALK,
         DOCTOR_YELL,
         SYRINGE_STAB
@@ -36,6 +37,7 @@ public class SoundsControl : MonoBehaviour {
 
     public AudioClip speaker1Clip;
     public AudioClip speaker2Clip;
+    public AudioClip speaker3Clip;
     public AudioClip doorBuzzClip;
     public AudioClip unicornClip;
     public AudioClip syringeClip;
@@ -76,6 +78,9 @@ public class SoundsControl : MonoBehaviour {
                 speakerSource.PlayOneShot(speaker1Clip);
                 break;
             case Sounds.SPEAKER_2:
+                speakerSource.PlayOneShot(speaker2Clip);
+                break;
+            case Sounds.SPEAKER_3:
                 speakerSource.PlayOneShot(speaker2Clip);
                 break;
             case Sounds.DOCTOR_TALK:

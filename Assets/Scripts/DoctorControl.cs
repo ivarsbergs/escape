@@ -37,8 +37,8 @@ public class DoctorControl : MonoBehaviour
 
     // Use this for initialization
     void Start () {
-        StartSpawningDoctors();
-        //SoundsControl.Instance.PlaySound(SoundsControl.Sounds.DOCTOR_TALK);
+        CallNextSpawn();
+        SoundsControl.Instance.PlaySound(SoundsControl.Sounds.SPEAKER_1);
     }
 	
 	// Update is called once per frame
@@ -46,9 +46,9 @@ public class DoctorControl : MonoBehaviour
 		
 	}
 
-    void StartSpawningDoctors()
+    public void CallNextSpawn()
     {
-        Invoke("SpawnDoctor", 2f);
+        Invoke("SpawnDoctor", 3.5f);
     }
 
     public void SpawnDoctor()
