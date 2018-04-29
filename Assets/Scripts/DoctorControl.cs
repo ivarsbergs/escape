@@ -28,7 +28,7 @@ public class DoctorControl : MonoBehaviour
     private bool firstSpawned = false;
 
     public int doctorNumber = 0;
-    private Doctor _currentDoctor;
+    public Doctor currentDoctor;
 
     private void Awake()
     {
@@ -66,7 +66,7 @@ public class DoctorControl : MonoBehaviour
 
         Doctor d = go.GetComponent<Doctor>();
         d.SetMovingSpeed(firstSpawned ? DEFAULT_RUN_SPEED : DEFAULT_WALK_SPEED);
-        _currentDoctor = d;
+        currentDoctor = d;
 
         doctorNumber++;
         firstSpawned = true;
@@ -74,9 +74,9 @@ public class DoctorControl : MonoBehaviour
 
     public void EndGame()
     {
-        if (!ReferenceEquals(_currentDoctor, null))
+        if (!ReferenceEquals(currentDoctor, null))
         {
-            _currentDoctor.StopMovingForward(false);
+            currentDoctor.StopMovingForward(false);
         }
     }
 }

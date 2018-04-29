@@ -32,8 +32,6 @@ public class SoundsControl : MonoBehaviour {
     public AudioSource doorSource;
     public AudioSource unicornSource;
     public AudioSource behindHeadSource;
-    public AudioSource doctorSource;
-    public AudioSource doctorArmSource;
 
     public AudioClip speaker1Clip;
     public AudioClip speaker2Clip;
@@ -70,7 +68,8 @@ public class SoundsControl : MonoBehaviour {
                 unicornSource.PlayOneShot(unicornClip);
                 break;
             case Sounds.TEARING_ARM:
-                doctorArmSource.PlayOneShot(armTearClip);
+                if (DoctorControl.Instance.currentDoctor != null)
+                    DoctorControl.Instance.currentDoctor.armAudioSource.PlayOneShot(armTearClip);
                 break;
             case Sounds.SPEAKER_1:
                 speakerSource.PlayOneShot(speaker1Clip);
@@ -79,10 +78,12 @@ public class SoundsControl : MonoBehaviour {
                 speakerSource.PlayOneShot(speaker2Clip);
                 break;
             case Sounds.DOCTOR_TALK:
-                doctorSource.PlayOneShot(doctorTalkClip);
+                if (DoctorControl.Instance.currentDoctor != null)
+                    DoctorControl.Instance.currentDoctor.mouthAudioSource.PlayOneShot(doctorTalkClip);
                 break;
             case Sounds.DOCTOR_YELL:
-                doctorSource.PlayOneShot(doctorYellClip);
+                if (DoctorControl.Instance.currentDoctor != null)
+                    DoctorControl.Instance.currentDoctor.mouthAudioSource.PlayOneShot(doctorYellClip);
                 break;
         }
     }

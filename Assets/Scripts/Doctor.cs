@@ -20,6 +20,10 @@ public class Doctor : MonoBehaviour
     public BGCurve pathCurve;
     public BGCcCursorChangeLinear patchCursorChangeLinear;
 
+    public AudioSource mouthAudioSource;
+    public AudioSource armAudioSource;
+
+
     private bool _startedStabbing = false;
 
     // Use this for initialization
