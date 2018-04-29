@@ -98,7 +98,7 @@ public class ControllerBehaviour : MonoBehaviour
             hand.transform.parent = this.HandParent.transform;
             this.grabJoint.connectedBody = hand.GetComponent<HandBehaviour>().holdableRigidbody;
             this.liveHand = null;
+            SteamVR_Controller.Input(1).TriggerHapticPulse(3000);
         }
-        
     }
 }
