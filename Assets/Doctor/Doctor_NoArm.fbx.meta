@@ -57,6 +57,29 @@ ModelImporter:
     100098: thumb_03_l
     100100: thumb_03_l_end
     100102: upperarm_l
+    100104: hand_r
+    100106: index_01_r
+    100108: index_02_r
+    100110: index_03_r
+    100112: index_03_r_end
+    100114: lowerarm_r
+    100116: middle_01_r
+    100118: middle_02_r
+    100120: middle_03_r
+    100122: middle_03_r_end
+    100124: pinky_01_r
+    100126: pinky_02_r
+    100128: pinky_03_r
+    100130: pinky_03_r_end
+    100132: ring_01_r
+    100134: ring_02_r
+    100136: ring_03_r
+    100138: ring_03_r_end
+    100140: thumb_01_r
+    100142: thumb_02_r
+    100144: thumb_03_r
+    100146: thumb_03_r_end
+    100148: upperarm_r
     400000: ball_l
     400002: ball_l_end
     400004: ball_r
@@ -109,6 +132,29 @@ ModelImporter:
     400098: thumb_03_l
     400100: thumb_03_l_end
     400102: upperarm_l
+    400104: hand_r
+    400106: index_01_r
+    400108: index_02_r
+    400110: index_03_r
+    400112: index_03_r_end
+    400114: lowerarm_r
+    400116: middle_01_r
+    400118: middle_02_r
+    400120: middle_03_r
+    400122: middle_03_r_end
+    400124: pinky_01_r
+    400126: pinky_02_r
+    400128: pinky_03_r
+    400130: pinky_03_r_end
+    400132: ring_01_r
+    400134: ring_02_r
+    400136: ring_03_r
+    400138: ring_03_r_end
+    400140: thumb_01_r
+    400142: thumb_02_r
+    400144: thumb_03_r
+    400146: thumb_03_r_end
+    400148: upperarm_r
     2100000: Doctor_Clothes
     2100002: Doctor_Shoes
     2100004: Doctor_Skin
@@ -128,7 +174,37 @@ ModelImporter:
     13700006: Head.001
     13700008: Mask.001
     13700010: Shoes.001
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Doctor_Clothes
+    second: {fileID: 2100000, guid: ec083ed5c41c83143822712acdf5285f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Doctor_Hat
+    second: {fileID: 2100000, guid: 053236b2ae66ec942bd2389bea6d6469, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Doctor_Mask
+    second: {fileID: 2100000, guid: 01d1ff9aa75fcff43b4d105a15eaf7fd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Doctor_Shoes
+    second: {fileID: 2100000, guid: 077a264d71c9c5b4384302341a6af6c8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Doctor_Skin
+    second: {fileID: 2100000, guid: 35135e2eb70ed354ba73f281f55ee79d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Head
+    second: {fileID: 2100000, guid: 199e22cd089c798478068d1504e27d18, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class BleedFX : ParticleLauncherBase
 {
-    [SerializeField] private int framesInterval = 1;
+    [SerializeField] private float spawnParticleSize = 0.25f;
     [SerializeField] private int intensity = 1;
-
 
     protected override void Start()
     {
@@ -18,8 +17,12 @@ public class BleedFX : ParticleLauncherBase
     {
         while (true)
         {
-            for (int i = 0; i < intensity; ++i) ShootParticle();
-            for (int i = 0; i < framesInterval; ++i) yield return null;
+            if (Random.value < spawnParticleSize)
+            {
+                for (int i = 0; i < intensity; ++i) ShootParticle();
+            }
+
+            yield return null;
         }
     }
 }

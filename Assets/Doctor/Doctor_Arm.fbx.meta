@@ -31,6 +31,7 @@ ModelImporter:
     100046: thumb_03_r.001
     100048: thumb_03_r.001_end
     100050: upperarm_r.001
+    100052: hand_r.001_end
     400000: //RootNode
     400002: Doctor_Arm
     400004: Doctor_Arm.001
@@ -57,11 +58,17 @@ ModelImporter:
     400046: thumb_03_r.001
     400048: thumb_03_r.001_end
     400050: upperarm_r.001
+    400052: hand_r.001_end
     2100000: Doctor_Arm
     4300000: Doctor_Arm.001
     9500000: //RootNode
     13700000: Doctor_Arm.001
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Doctor_Arm
+    second: {fileID: 2100000, guid: 7485da9b6b3cdb04c9e02124ef5f6da2, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

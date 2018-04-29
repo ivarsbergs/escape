@@ -9,16 +9,23 @@ public class Doctor : MonoBehaviour
 
     public const int POINTS_UNTIL_END = 4;
     public const int POINTS_UNTIL_DOOR_OPEN = 1;
-    public const float STABBING_DISTANCE = 1f;
+    public const float STABBING_DISTANCE = 0.8f;
 
     public GameObject doctorObj;
 
-    public Animator animator;
+    public List<Animator> animators;
     private int _pointCounter;
 
     public BGCcCursor pathCursor;
     public BGCurve pathCurve;
     public BGCcCursorChangeLinear patchCursorChangeLinear;
+
+    public GameObject doctorBothArms;
+    public GameObject doctorOneArm;
+
+    public AudioSource mouthAudioSource;
+    public AudioSource armAudioSource;
+
 
     private bool _startedStabbing = false;
 
@@ -34,8 +41,10 @@ public class Doctor : MonoBehaviour
         if (!_startedStabbing && Vector3.Distance(doctorObj.transform.position, pathCurve[POINTS_UNTIL_END].PositionWorld) < STABBING_DISTANCE)
         {
             _startedStabbing = true;
-            StopMovingForward();
-            animator.SetBool("PlayerReached", true);
+            StopMovingForward(true);
+
+            foreach (Animator animator in animators)
+                animator.SetBool("PlayerReached", true);
         }
 
         pathCurve[POINTS_UNTIL_END].PositionWorld = Camera.main.transform.position;
@@ -53,30 +62,33 @@ public class Doctor : MonoBehaviour
     public void SetMovingSpeed(float speed)
     {
         patchCursorChangeLinear.Speed = speed;
-        animator.SetFloat("Speed", speed);
+        foreach (Animator animator in animators)
+            animator.SetFloat("Speed", speed);
     }
 
     public void RipOffRand()
     {
-        StopMovingForward();
+        CancelInvoke("PlaySyringeStab");
+        CancelInvoke("CallPlayerStabbed");
+        StopMovingForward(false);
 
-        animator.Play("Dead");
+        doctorBothArms.SetActive(false);
+        doctorOneArm.SetActive(true);
 
+        foreach (Animator animator in animators)
+            animator.Play("Dead");
 
-        //var meshRenerers = GetComponentsInChildren<SkinnedMeshRenderer>();
-        //foreach (SkinnedMeshRenderer mr in meshRenerers)
-        //{
-        //    Debug.Log("Set alpha");
-        //    var mrAlpha = mr.material.color;
-        //    mrAlpha.a = 0;
-        //    mr.material.color = new Color(mr.material.color.r, mr.material.color.g, mr.material.color.b, 0);
-        //}
+        SoundsControl.Instance.PlaySound(SoundsControl.Sounds.TEARING_ARM);
+        SoundsControl.Instance.PlaySound(SoundsControl.Sounds.DOCTOR_YELL);
+
+        DoctorControl.Instance.WaitForNextDispatcher();
     }
 
-    public void StopMovingForward()
+    public void StopMovingForward(bool keepLooking)
     {
         pathCursor.GetComponent<BGCcCursorObjectTranslate>().ObjectToManipulate = null;
-        pathCursor.GetComponent<BGCcCursorObjectRotate>().ObjectToManipulate = null;
+        if (!keepLooking)
+            pathCursor.GetComponent<BGCcCursorObjectRotate>().ObjectToManipulate = null;
         //foreach (Transform child in testMath.transform)
         //{
         //    GameObject.Destroy(child.gameObject);
@@ -86,23 +98,62 @@ public class Doctor : MonoBehaviour
 
     public void ReachPoint()
     {
-        _pointCounter++;
-
-        if (_pointCounter == POINTS_UNTIL_DOOR_OPEN)
+        if (!EndLevelControl.Instance.gameEnded)
         {
-            Debug.Log("Open door");
-            Invoke("CallOpenDoor", 3.4f - patchCursorChangeLinear.Speed);
+            _pointCounter++;
+
+            if (_pointCounter == POINTS_UNTIL_DOOR_OPEN)
+            {
+                Debug.Log("Open door");
+                Invoke("CallOpenDoor", 3.4f - patchCursorChangeLinear.Speed);
+                Invoke("CallOpenDoorSound", 2.2f - patchCursorChangeLinear.Speed);
+            }
+
+            if (_pointCounter >= POINTS_UNTIL_END)
+            {
+                foreach (Animator animator in animators)
+                    animator.SetBool("PlayerReached", true);
+
+                if (DoctorControl.Instance.doctorNumber == 1)
+                {
+                    SoundsControl.Instance.PlaySound(SoundsControl.Sounds.DOCTOR_TALK);
+                }
+                else
+                {
+                    Invoke("PlaySyringeStab", 0.4f);
+                }
+
+                Invoke("CallPlayerStabbed", 1f);
+            }
         }
+    }
 
-        if (_pointCounter >= POINTS_UNTIL_END)
+    public void PlaySyringeStab()
+    {
+        SoundsControl.Instance.PlaySound(SoundsControl.Sounds.SYRINGE_STAB);
+    }
+
+    public void CallOpenDoorSound()
+    {
+        if (!EndLevelControl.Instance.gameEnded)
         {
-            animator.SetBool("PlayerReached", true);
+            SoundsControl.Instance.PlaySound(SoundsControl.Sounds.DOOR);
         }
     }
 
     public void CallOpenDoor()
     {
-        DoctorControl.Instance.doorAnimator.Play("OpenDoor");
-        SoundsControl.Instance.PlaySound(SoundsControl.Sounds.DOOR);
+        if (!EndLevelControl.Instance.gameEnded)
+        {
+            DoctorControl.Instance.doorAnimator.Play("OpenDoor");
+        }
+    }
+
+    public void CallPlayerStabbed()
+    {
+        if (!EndLevelControl.Instance.gameEnded)
+        {
+            Debug.Log("STAB!");
+        }
     }
 }

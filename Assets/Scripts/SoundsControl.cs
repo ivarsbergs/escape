@@ -21,10 +21,29 @@ public class SoundsControl : MonoBehaviour {
         TEARING_ARM,
         SCREAM,
         DOOR,
-        UNICORN
+        UNICORN,
+        SPEAKER_1,
+        SPEAKER_2,
+        SPEAKER_3,
+        DOCTOR_TALK,
+        DOCTOR_YELL,
+        SYRINGE_STAB
     }
 
+    public AudioSource speakerSource;
     public AudioSource doorSource;
+    public AudioSource unicornSource;
+    public AudioSource behindHeadSource;
+
+    public AudioClip speaker1Clip;
+    public AudioClip speaker2Clip;
+    public AudioClip speaker3Clip;
+    public AudioClip doorBuzzClip;
+    public AudioClip unicornClip;
+    public AudioClip syringeClip;
+    public AudioClip doctorYellClip;
+    public AudioClip doctorTalkClip;
+    public AudioClip armTearClip;
 
     private void Awake()
     {
@@ -46,7 +65,37 @@ public class SoundsControl : MonoBehaviour {
         switch (soundSelected)
         {
             case Sounds.DOOR:
-                doorSource.Play();
+                doorSource.PlayOneShot(doorBuzzClip);
+                break;
+            case Sounds.UNICORN:
+                unicornSource.PlayOneShot(unicornClip);
+                break;
+            case Sounds.TEARING_ARM:
+                if (DoctorControl.Instance.currentDoctor != null)
+                    DoctorControl.Instance.currentDoctor.armAudioSource.PlayOneShot(armTearClip);
+                break;
+            case Sounds.SPEAKER_1:
+                speakerSource.PlayOneShot(speaker1Clip);
+                break;
+            case Sounds.SPEAKER_2:
+                speakerSource.PlayOneShot(speaker2Clip);
+                break;
+            case Sounds.SPEAKER_3:
+                speakerSource.PlayOneShot(speaker3Clip);
+                break;
+            case Sounds.DOCTOR_TALK:
+                if (DoctorControl.Instance.currentDoctor != null)
+                    DoctorControl.Instance.currentDoctor.mouthAudioSource.PlayOneShot(doctorTalkClip);
+                break;
+            case Sounds.DOCTOR_YELL:
+                if (DoctorControl.Instance.currentDoctor != null)
+                {
+                    DoctorControl.Instance.currentDoctor.mouthAudioSource.Stop();
+                    DoctorControl.Instance.currentDoctor.mouthAudioSource.PlayOneShot(doctorYellClip);
+                }
+                break;
+            case Sounds.SYRINGE_STAB:
+                behindHeadSource.PlayOneShot(syringeClip);
                 break;
         }
     }
